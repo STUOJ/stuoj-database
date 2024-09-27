@@ -21,11 +21,13 @@ create table if not exists language
 
 create table if not exists question
 (
-    id         int unsigned auto_increment comment '题目ID'
+    id          int unsigned auto_increment comment '题目ID'
         primary key,
-    title      text                     not null comment '标题',
-    source     varchar(50)              null comment '题目来源',
-    difficulty int unsigned default '0' not null comment '难度： 0 暂无评定，1 普及−，2 普及/提高−，3 普及+/提高，4 提高+/省选− ，5 省选/NOI−，6 NOI/NOI+/CTSC'
+    title       text                     not null comment '标题',
+    source      varchar(50)              null comment '题目来源',
+    difficulty  int unsigned default '0' not null comment '难度： 0 暂无评定，1 普及−，2 普及/提高−，3 普及+/提高，4 提高+/省选− ，5 省选/NOI−，6 NOI/NOI+/CTSC',
+    create_time datetime                 null comment '创建时间',
+    update_time datetime                 null comment '更新时间'
 )
     comment '题目表';
 
@@ -43,17 +45,19 @@ create table if not exists submission
     memory       int unsigned             null comment '内存',
     time         int unsigned default '0' not null comment '运行耗时'
 )
-    comment '提交记录';
+    comment '提交记录表';
 
 create table if not exists user
 (
-    id       int unsigned auto_increment comment '用户ID'
+    id          int unsigned auto_increment comment '用户ID'
         primary key,
-    username varchar(50)                   not null comment '用户名',
-    password varchar(50)  default '123456' not null comment '密码',
-    `group`  int unsigned default '1'      not null comment '用户组：0 封禁，1 普通用户，2 管理员',
-    email    varchar(50)                   not null comment '邮箱',
-    avatar   varchar(200)                  null comment '头像URL',
+    username    varchar(50)                   not null comment '用户名',
+    password    varchar(50)  default '123456' not null comment '密码',
+    `group`     int unsigned default '1'      not null comment '用户组：0 封禁，1 普通用户，2 管理员',
+    email       varchar(50)                   not null comment '邮箱',
+    avatar      varchar(200)                  null comment '头像URL',
+    create_time datetime                      null comment '创建时间',
+    update_time datetime                      null comment '更新时间',
     constraint user_pk_2
         unique (username),
     constraint user_pk_3
