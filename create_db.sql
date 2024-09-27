@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS stuoj_db;
 
 USE stuoj_db;
 
-create table if not exists judgement
+create table if not exists tbl_judgement
 (
     id            int unsigned auto_increment comment '评测点ID'
         primary key,
@@ -13,7 +13,7 @@ create table if not exists judgement
 )
     comment '单个评测点结果表';
 
-create table if not exists language
+create table if not exists tbl_language
 (
     id   int unsigned auto_increment comment '语言ID'
         primary key,
@@ -21,7 +21,7 @@ create table if not exists language
 )
     comment '语言表';
 
-create table if not exists question
+create table if not exists tbl_question
 (
     id          int unsigned auto_increment comment '题目ID'
         primary key,
@@ -33,7 +33,7 @@ create table if not exists question
 )
     comment '题目表';
 
-create table if not exists submission
+create table if not exists tbl_submission
 (
     id          int unsigned auto_increment comment '提交记录id'
         primary key,
@@ -49,7 +49,7 @@ create table if not exists submission
 )
     comment '提交记录表';
 
-create table if not exists user
+create table if not exists tbl_user
 (
     id          int unsigned auto_increment comment '用户ID'
         primary key,
