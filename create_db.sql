@@ -35,7 +35,7 @@ create table if not exists submission
         primary key,
     user_id      int unsigned default '0' not null comment '用户ID',
     question_id  int unsigned             not null comment '题目ID',
-    status       int unsigned             null comment '状态：',
+    status       int unsigned             null comment '状态',
     score        int unsigned default '0' not null comment '分数',
     submit_time  datetime                 not null comment '提交时间',
     languages_id int unsigned default '0' not null comment '语言id',
