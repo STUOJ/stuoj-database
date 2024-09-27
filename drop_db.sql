@@ -1,13 +1,13 @@
 USE stuoj_db;
 
-drop table tbl_judgement;
+drop table if exists tbl_judgement;
 
-drop table tbl_language;
+drop table if exists tbl_language;
 
-drop table tbl_question;
+drop table if exists tbl_question;
 
-drop table tbl_submission;
+drop table if exists tbl_submission;
 
-drop table tbl_user;
+drop table if exists tbl_user;
 
 DROP DATABASE IF EXISTS stuoj_db;
