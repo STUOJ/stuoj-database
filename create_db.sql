@@ -33,17 +33,17 @@ create table if not exists question
 
 create table if not exists submission
 (
-    id           int unsigned auto_increment comment '提交记录id'
+    id          int unsigned auto_increment comment '提交记录id'
         primary key,
-    user_id      int unsigned default '0' not null comment '用户ID',
-    question_id  int unsigned             not null comment '题目ID',
-    status       int unsigned             null comment '状态',
-    score        int unsigned default '0' not null comment '分数',
-    submit_time  datetime                 not null comment '提交时间',
-    languages_id int unsigned default '0' not null comment '语言id',
-    length       int unsigned default '0' not null comment '长度',
-    memory       int unsigned             null comment '内存',
-    time         int unsigned default '0' not null comment '运行耗时'
+    user_id     int unsigned default '0' not null comment '用户ID',
+    question_id int unsigned             not null comment '题目ID',
+    status      int unsigned             null comment '状态',
+    score       int unsigned default '0' not null comment '分数',
+    submit_time datetime                 not null comment '提交时间',
+    language_id int unsigned default '0' not null comment '语言id',
+    length      int unsigned default '0' not null comment '长度',
+    memory      int unsigned             null comment '内存',
+    time        int unsigned default '0' not null comment '运行耗时'
 )
     comment '提交记录表';
 
