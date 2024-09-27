@@ -1,5 +1,7 @@
 CREATE DATABASE IF NOT EXISTS stuoj_db;
 
+USE stuoj_db;
+
 create table if not exists judgement
 (
     id            int unsigned auto_increment comment '评测点ID'
