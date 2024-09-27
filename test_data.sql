@@ -12,7 +12,6 @@ INSERT INTO tbl_judgement (submission_id, status, time, memory) VALUES
 (9, 1, 500, 32768),
 (10, 0, 550, 65536);
 
--- 插入测试数据到 tbl_language
 INSERT INTO tbl_language (name) VALUES
 ('C++'),
 ('Java'),
