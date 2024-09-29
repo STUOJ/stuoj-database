@@ -48,7 +48,7 @@ INSERT INTO tbl_submission (user_id, question_id, status, score, submit_time, la
 (9, 9, 1, 20, '2023-01-09 18:00:00', 9, 130, 32768, 500),
 (10, 10, 0, 10, '2023-01-10 19:00:00', 10, 140, 65536, 550);
 
-INSERT INTO tbl_user (username, password, `group`, email, avatar, create_time, update_time) VALUES
+INSERT INTO tbl_user (username, password, role, email, avatar, create_time, update_time) VALUES
 ('user1', 'pass123', 1, 'user1@example.com', 'http://example.com/avatar1.png', '2023-01-01 10:00:00', '2023-01-01 10:00:00'),
 ('user2', 'pass456', 1, 'user2@example.com', 'http://example.com/avatar2.png', '2023-01-02 11:00:00', '2023-01-02 11:00:00'),
 ('user3', 'pass789', 1, 'user3@example.com', 'http://example.com/avatar3.png', '2023-01-03 12:00:00', '2023-01-03 12:00:00'),
