@@ -55,7 +55,7 @@ create table if not exists tbl_user
         primary key,
     username    varchar(50)                   not null comment '用户名',
     password    varchar(50)  default '123456' not null comment '密码',
-    `group`     int unsigned default '1'      not null comment '用户组：0 封禁，1 普通用户，2 管理员，3 超级管理员',
+    role     int unsigned default '1'      not null comment '角色：0 封禁，1 普通用户，2 管理员，3 超级管理员',
     email       varchar(50)                   not null comment '邮箱',
     avatar      varchar(200)                  null comment '头像URL',
     create_time timestamp                      null comment '创建时间',
