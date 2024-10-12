@@ -26,7 +26,7 @@ create table if not exists tbl_question
     id          int unsigned auto_increment comment '题目ID'
         primary key,
     title       text                     not null comment '标题',
-    source      varchar(255)             null comment '题目来源',
+    source      varchar(255) default ''  not null comment '题目来源',
     difficulty  int unsigned default '0' not null comment '难度： 0 暂无评定，1 普及−，2 普及/提高−，3 普及+/提高，4 提高+/省选− ，5 省选/NOI−，6 NOI/NOI+/CTSC',
     create_time timestamp                null comment '创建时间',
     update_time timestamp                null comment '更新时间'
@@ -57,7 +57,7 @@ create table if not exists tbl_user
     password    varchar(255) default '123456' not null comment '密码',
     role        int unsigned default '1'      not null comment '角色：0 封禁，1 普通用户，2 管理员，3 超级管理员',
     email       varchar(255)                  not null comment '邮箱',
-    avatar      varchar(255)                  null comment '头像URL',
+    avatar      varchar(255) default ''       null comment '头像URL',
     create_time timestamp                     null comment '创建时间',
     update_time timestamp                     null comment '更新时间',
     constraint user_pk_2
