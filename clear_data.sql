@@ -4,7 +4,7 @@ truncate table tbl_judgement;
 
 truncate table tbl_language;
 
-truncate table tbl_question;
+truncate table tbl_problem;
 
 truncate table tbl_submission;
 

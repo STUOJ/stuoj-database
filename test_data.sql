@@ -24,7 +24,7 @@ INSERT INTO tbl_language (name) VALUES
 ('PHP'),
 ('Rust');
 
-INSERT INTO tbl_question (title, source, difficulty, create_time, update_time) VALUES
+INSERT INTO tbl_problem (title, source, difficulty, create_time, update_time) VALUES
 ('两数之和', 'LeetCode', 2, '2023-01-01 10:00:00', '2023-01-01 10:00:00'),
 ('反转字符串', 'LeetCode', 1, '2023-01-02 11:00:00', '2023-01-02 11:00:00'),
 ('回文数', 'LeetCode', 1, '2023-01-03 12:00:00', '2023-01-03 12:00:00'),
@@ -36,7 +36,7 @@ INSERT INTO tbl_question (title, source, difficulty, create_time, update_time) V
 ('对称二叉树', 'LeetCode', 2, '2023-01-09 18:00:00', '2023-01-09 18:00:00'),
 ('二叉树的中序遍历', 'LeetCode', 2, '2023-01-10 19:00:00', '2023-01-10 19:00:00');
 
-INSERT INTO tbl_submission (user_id, question_id, status, score, submit_time, language_id, length, memory, time) VALUES
+INSERT INTO tbl_submission (user_id, problem_id, status, score, submit_time, language_id, length, memory, time) VALUES
 (1, 1, 1, 100, '2023-01-01 10:00:00', 1, 50, 256, 100),
 (2, 2, 0, 90, '2023-01-02 11:00:00', 2, 60, 512, 200),
 (3, 3, 1, 80, '2023-01-03 12:00:00', 3, 70, 128, 150),

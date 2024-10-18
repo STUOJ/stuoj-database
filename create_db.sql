@@ -21,7 +21,7 @@ create table if not exists tbl_language
 )
     comment '语言表';
 
-create table if not exists tbl_question
+create table if not exists tbl_problem
 (
     id          int unsigned auto_increment comment '题目ID'
         primary key,
@@ -38,7 +38,7 @@ create table if not exists tbl_submission
     id          int unsigned auto_increment comment '提交记录id'
         primary key,
     user_id     int unsigned default '0' not null comment '用户ID',
-    question_id int unsigned             not null comment '题目ID',
+    problem_id int unsigned             not null comment '题目ID',
     status      int unsigned             null comment '状态',
     score       int unsigned default '0' not null comment '分数',
     submit_time timestamp                not null comment '提交时间',

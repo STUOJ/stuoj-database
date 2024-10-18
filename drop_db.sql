@@ -4,7 +4,7 @@ drop table if exists tbl_judgement;
 
 drop table if exists tbl_language;
 
-drop table if exists tbl_question;
+drop table if exists tbl_problem;
 
 drop table if exists tbl_submission;
 
