@@ -2,11 +2,13 @@ CREATE DATABASE IF NOT EXISTS stuoj_db;
 
 USE stuoj_db;
 
+-- DDL
+
 create table if not exists tbl_judgement
 (
     id            int unsigned auto_increment comment '评测点ID'
         primary key,
-    submission_id int unsigned             not null comment '提交记录ID',
+    submission_id int unsigned default '0' not null comment '提交记录ID',
     status        int unsigned default '0' not null comment '状态',
     time          int unsigned default '0' not null comment '运行耗时',
     memory        int unsigned default '0' not null comment '内存'
@@ -44,15 +46,15 @@ create table if not exists tbl_submission
 (
     id          int unsigned auto_increment comment '提交记录id'
         primary key,
-    user_id     int unsigned default '0' not null comment '用户ID',
-    problem_id int unsigned             not null comment '题目ID',
-    status      int unsigned             null comment '状态',
-    score       int unsigned default '0' not null comment '分数',
-    submit_time timestamp                not null comment '提交时间',
-    language_id int unsigned default '0' not null comment '语言id',
-    length      int unsigned default '0' not null comment '长度',
-    memory      int unsigned             null comment '内存',
-    time        int unsigned default '0' not null comment '运行耗时'
+    user_id     int unsigned default '0'     not null comment '用户ID',
+    problem_id  int unsigned default '0'     not null comment '题目ID',
+    status      int unsigned default '0'     not null comment '状态',
+    score       int unsigned default '0'     not null comment '分数',
+    submit_time timestamp    default (now()) not null comment '提交时间',
+    language_id int unsigned default '0'     not null comment '语言id',
+    length      int unsigned default '0'     not null comment '长度',
+    memory      int unsigned default '0'     not null comment '内存',
+    time        int unsigned default '0'     not null comment '运行耗时'
 )
     comment '提交记录表';
 
@@ -60,13 +62,13 @@ create table if not exists tbl_user
 (
     id          int unsigned auto_increment comment '用户ID'
         primary key,
-    username    varchar(255)                  not null comment '用户名',
-    password    varchar(255) default '123456' not null comment '密码',
-    role        int unsigned default '1'      not null comment '角色：0 封禁，1 普通用户，2 管理员，3 超级管理员',
-    email       varchar(255)                  not null comment '邮箱',
-    avatar      varchar(255) default ''       null comment '头像URL',
-    create_time timestamp                     null comment '创建时间',
-    update_time timestamp                     null comment '更新时间',
+    username    varchar(255)                           not null comment '用户名',
+    password    varchar(255) default '123456'          not null comment '密码',
+    role        int unsigned default '1'               not null comment '角色：0 封禁，1 普通用户，2 管理员，3 超级管理员',
+    email       varchar(255)                           not null comment '邮箱',
+    avatar      varchar(255) default ''                not null comment '头像URL',
+    create_time timestamp    default CURRENT_TIMESTAMP not null comment '创建时间',
+    update_time timestamp    default CURRENT_TIMESTAMP not null comment '更新时间',
     constraint user_pk_2
         unique (username),
     constraint user_pk_3
