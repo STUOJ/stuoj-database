@@ -56,7 +56,7 @@ create table if not exists tbl_submission
     length      int unsigned default '0'     not null comment '长度',
     memory      int unsigned default '0'     not null comment '内存',
     time        int unsigned default '0'     not null comment '运行耗时',
-    solution    longtext                     not null comment '题解代码'
+    source_code    longtext                     not null comment '代码'
 )
     comment '提交记录表';
 

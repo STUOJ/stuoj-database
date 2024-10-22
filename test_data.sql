@@ -42,7 +42,7 @@ INSERT INTO tbl_problem (title, source, difficulty, time_limit, memory_limit, de
                                                                                                                                                  ('Problem 10', 'Source 10', 4, 10, 256, 'Description 10', 'Input 10', 'Output 10', 'Sample Input 10', 'Sample Output 10', 'Hint 10');
 
 -- Insert test data into tbl_submission
-INSERT INTO tbl_submission (user_id, problem_id, status, score, language_id, length, memory, time, solution) VALUES
+INSERT INTO tbl_submission (user_id, problem_id, status, score, language_id, length, memory, time, source_code) VALUES
                                                                                                                  (1, 1, 0, 100, 1, 1000, 256, 100, 'Solution 1'),
                                                                                                                  (2, 2, 1, 90, 2, 2000, 512, 200, 'Solution 2'),
                                                                                                                  (3, 3, 0, 80, 3, 1500, 128, 150, 'Solution 3'),
