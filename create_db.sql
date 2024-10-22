@@ -62,14 +62,14 @@ create table if not exists tbl_submission
 
 create table if not exists tbl_test_point
 (
-    id            int unsigned auto_increment comment '测试点ID'
+    id            int unsigned auto_increment comment '评测点ID'
         primary key,
-    serial int unsigned default '0' not null comment '测试点序号',
+    serial int unsigned default '0' not null comment '评测点序号',
     problem_id    int unsigned default '0' not null comment '题目ID',
     test_input    longtext                 not null comment '测试输入',
     test_output   longtext                 not null comment '测试输出'
 )
-    comment '测试点表';
+    comment '评测点数据表';
 
 create table if not exists tbl_user
 (
