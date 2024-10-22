@@ -44,19 +44,30 @@ create table if not exists tbl_problem
 
 create table if not exists tbl_submission
 (
-    id          int unsigned auto_increment comment '提交记录id'
+    id          int unsigned auto_increment comment '提交记录ID'
         primary key,
     user_id     int unsigned default '0'     not null comment '用户ID',
     problem_id  int unsigned default '0'     not null comment '题目ID',
     status      int unsigned default '0'     not null comment '状态',
     score       int unsigned default '0'     not null comment '分数',
     submit_time timestamp    default (now()) not null comment '提交时间',
-    language_id int unsigned default '0'     not null comment '语言id',
+    language_id int unsigned default '0'     not null comment '语言ID',
     length      int unsigned default '0'     not null comment '长度',
     memory      int unsigned default '0'     not null comment '内存',
-    time        int unsigned default '0'     not null comment '运行耗时'
+    time        int unsigned default '0'     not null comment '运行耗时',
+    solution    text                         not null comment '题解'
 )
     comment '提交记录表';
+
+create table if not exists tbl_test_point
+(
+    id          int unsigned auto_increment comment '测试点ID'
+        primary key,
+    problem_id  int unsigned default '0' not null comment '题目ID',
+    test_input  text                     not null comment '测试输入',
+    test_output text                     not null comment '测试输出'
+)
+    comment '测试点表';
 
 create table if not exists tbl_user
 (
