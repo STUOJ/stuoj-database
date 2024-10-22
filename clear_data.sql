@@ -9,3 +9,5 @@ truncate table tbl_problem;
 truncate table tbl_submission;
 
 truncate table tbl_user;
+
+truncate table tbl_test_point;
