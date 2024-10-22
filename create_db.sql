@@ -23,13 +23,20 @@ create table if not exists tbl_language
 
 create table if not exists tbl_problem
 (
-    id          int unsigned auto_increment comment '题目ID'
+    id            int unsigned auto_increment comment '题目ID'
         primary key,
-    title       text                     not null comment '标题',
-    source      varchar(255) default ''  not null comment '题目来源',
-    difficulty  int unsigned default '0' not null comment '难度： 0 暂无评定，1 普及−，2 普及/提高−，3 普及+/提高，4 提高+/省选− ，5 省选/NOI−，6 NOI/NOI+/CTSC',
-    create_time timestamp                null comment '创建时间',
-    update_time timestamp                null comment '更新时间'
+    title         text                         not null comment '标题',
+    source        text                         null comment '题目来源',
+    difficulty    int unsigned default '0'     not null comment '难度： 0 暂无评定，1 普及−，2 普及/提高−，3 普及+/提高，4 提高+/省选− ，5 省选/NOI−，6 NOI/NOI+/CTSC',
+    time_limit    int unsigned default '1'     not null comment '时间限制（秒）',
+    memory_limit  int unsigned default '128'   not null comment '内存限制（mb）',
+    input         text                         not null comment '输入说明',
+    output        text                         not null comment '输出说明',
+    sample_input  text                         not null comment '输入样例',
+    sample_output text                         not null comment '输出样例',
+    hint          text                         not null comment '提示',
+    create_time   timestamp    default (now()) not null comment '创建时间',
+    update_time   timestamp    default (now()) not null comment '更新时间'
 )
     comment '题目表';
 
