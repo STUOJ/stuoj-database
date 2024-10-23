@@ -38,7 +38,7 @@ create table if not exists tbl_problem
     sample_input  longtext                     not null comment '输入样例',
     sample_output longtext                     not null comment '输出样例',
     hint          longtext                     not null comment '提示',
-    status        int unsigned default '1'     not null comment '状态：1 公开，2 出题中，3 调试中，4 作废',
+    status        int unsigned default '1'     not null comment '状态：0 作废，1 公开，2 出题中，3 调试中',
     create_time   timestamp    default (now()) not null comment '创建时间',
     update_time   timestamp    default (now()) not null comment '更新时间'
 )
