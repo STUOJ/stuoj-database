@@ -38,6 +38,7 @@ create table if not exists tbl_problem
     sample_input  longtext                     not null comment '输入样例',
     sample_output longtext                     not null comment '输出样例',
     hint          longtext                     not null comment '提示',
+    status        int unsigned default '1'     not null comment '状态：1 公开，2 出题中，3 调试中，4 作废',
     create_time   timestamp    default (now()) not null comment '创建时间',
     update_time   timestamp    default (now()) not null comment '更新时间'
 )
@@ -56,18 +57,18 @@ create table if not exists tbl_submission
     length      int unsigned default '0'     not null comment '长度',
     memory      int unsigned default '0'     not null comment '内存',
     time        int unsigned default '0'     not null comment '运行耗时',
-    source_code    longtext                     not null comment '代码'
+    source_code longtext                     not null comment '代码'
 )
     comment '提交记录表';
 
 create table if not exists tbl_test_point
 (
-    id            int unsigned auto_increment comment '评测点ID'
+    id          int unsigned auto_increment comment '评测点ID'
         primary key,
-    serial int unsigned default '0' not null comment '评测点序号',
-    problem_id    int unsigned default '0' not null comment '题目ID',
-    test_input    longtext                 not null comment '测试输入',
-    test_output   longtext                 not null comment '测试输出'
+    serial      int unsigned default '0' not null comment '评测点序号',
+    problem_id  int unsigned default '0' not null comment '题目ID',
+    test_input  longtext                 not null comment '测试输入',
+    test_output longtext                 not null comment '测试输出'
 )
     comment '评测点数据表';
 
