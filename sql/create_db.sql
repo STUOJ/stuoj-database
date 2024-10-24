@@ -4,18 +4,19 @@ USE stuoj_db;
 
 -- DDL
 
-create table if not exists tbl_judgement
+create table tbl_judgement
 (
-    id            int unsigned auto_increment comment '评测点ID'
+    id             int unsigned auto_increment comment '评测点ID'
         primary key,
-    submission_id int unsigned   default '0' not null comment '提交记录ID',
-    test_point_id int unsigned   default '0' not null comment '评测点ID',
-    time          float unsigned default '0' not null comment '运行耗时（s）',
-    memory        int unsigned   default '0' not null comment '内存（kb）',
-    output        longtext                   not null comment '输出结果',
-    error         longtext                   not null comment '报错信息',
-    message       longtext                   not null comment '信息',
-    status        int unsigned   default '0' not null comment '状态'
+    submission_id  int unsigned   default '0' not null comment '提交记录ID',
+    test_point_id  int unsigned   default '0' not null comment '评测点ID',
+    time           float unsigned default '0' not null comment '运行耗时（s）',
+    memory         int unsigned   default '0' not null comment '内存（kb）',
+    stdout         longtext                   not null comment '标准输出',
+    stderr         longtext                   not null comment '标准错误输出',
+    compile_output longtext                   null comment '编译输出',
+    message        longtext                   not null comment '信息',
+    status         int unsigned   default '0' not null comment '状态'
 )
     comment '单个评测点结果表';
 
