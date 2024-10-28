@@ -86,7 +86,7 @@ create table if not exists tbl_user
     password    varchar(255) default '123456'          not null comment '密码',
     role        int unsigned default '1'               not null comment '角色：0 封禁，1 普通用户，2 管理员，3 超级管理员',
     email       varchar(255)                           not null comment '邮箱',
-    avatar      varchar(1023)                          null comment '头像URL',
+    avatar      text                                   null comment '头像URL',
     signature   text                                   null comment '个性签名',
     create_time timestamp    default CURRENT_TIMESTAMP not null comment '创建时间',
     update_time timestamp    default CURRENT_TIMESTAMP not null comment '更新时间',
