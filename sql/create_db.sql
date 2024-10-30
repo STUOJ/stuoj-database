@@ -9,7 +9,7 @@ create table if not exists tbl_judgement
     id             int unsigned auto_increment comment '评测点ID'
         primary key,
     submission_id  int unsigned   default '0' not null comment '提交记录ID',
-    test_point_id  int unsigned   default '0' not null comment '评测点ID',
+    testcase_id  int unsigned   default '0' not null comment '评测点ID',
     time           float unsigned default '0' not null comment '运行耗时（s）',
     memory         int unsigned   default '0' not null comment '内存（kb）',
     stdout         longtext                   not null comment '标准输出',
@@ -18,7 +18,7 @@ create table if not exists tbl_judgement
     message        longtext                   not null comment '信息',
     status         int unsigned   default '0' not null comment '状态'
 )
-    comment '单个评测点结果表';
+    comment '评测点结果表';
 
 create table if not exists tbl_language
 (
@@ -65,9 +65,9 @@ create table if not exists tbl_submission
     create_time timestamp      default (now()) not null comment '创建时间',
     update_time timestamp      default (now()) not null comment '更新时间'
 )
-    comment '提交记录表';
+    comment '提交信息表';
 
-create table if not exists tbl_test_point
+create table if not exists tbl_testcase
 (
     id          int unsigned auto_increment comment '评测点ID'
         primary key,

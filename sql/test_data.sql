@@ -3,7 +3,7 @@ USE stuoj_db;
 -- DML
 
 -- Insert test data into tbl_judgement
-INSERT INTO tbl_judgement (submission_id, test_point_id, time, memory, stdout, stderr, compile_output, message, status) VALUES
+INSERT INTO tbl_judgement (submission_id, testcase_id, time, memory, stdout, stderr, compile_output, message, status) VALUES
                                                                                                                             (1, 1, 0.5, 1024, 'Output 1', 'Error 1', 'Compile Output 1', 'Message 1', 1),
                                                                                                                             (2, 2, 0.6, 2048, 'Output 2', 'Error 2', 'Compile Output 2', 'Message 2', 2),
                                                                                                                             (3, 3, 0.7, 3072, 'Output 3', 'Error 3', 'Compile Output 3', 'Message 3', 3),
@@ -54,8 +54,8 @@ INSERT INTO tbl_submission (user_id, problem_id, status, score, submit_time, lan
                                                                                                                                  (9, 9, 8, 90, NOW(), 9, 900, 9216, 1.3, 'Source Code 9'),
                                                                                                                                  (10, 10, 9, 100, NOW(), 10, 1000, 10240, 1.4, 'Source Code 10');
 
--- Insert test data into tbl_test_point
-INSERT INTO tbl_test_point (serial, problem_id, test_input, test_output) VALUES
+-- Insert test data into tbl_testcase
+INSERT INTO tbl_testcase (serial, problem_id, test_input, test_output) VALUES
                                                                              (1, 1, 'Test Input 1', 'Test Output 1'),
                                                                              (2, 2, 'Test Input 2', 'Test Output 2'),
                                                                              (3, 3, 'Test Input 3', 'Test Output 3'),
