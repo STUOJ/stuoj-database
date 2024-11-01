@@ -124,5 +124,14 @@ create table if not exists tbl_tag
         primary key,
     name varchar(1023) default '' not null comment '标签名'
 )
-    comment '题目标签表';
+    comment '标签表';
+
+create table if not exists tbl_problem_tag
+(
+    id         int unsigned auto_increment comment '关系ID'
+        primary key,
+    problem_id int unsigned default '0' not null comment '题目ID',
+    tag_id     int unsigned default '0' not null comment '标签ID'
+)
+    comment '题目标签关系表';
 
