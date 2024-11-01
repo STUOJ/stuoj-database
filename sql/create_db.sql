@@ -24,7 +24,7 @@ create table if not exists tbl_language
 (
     id   int unsigned auto_increment comment '语言ID'
         primary key,
-    name varchar(1023) not null comment '语言名'
+    name varchar(255) not null comment '语言名'
 )
     comment '语言表';
 
@@ -82,10 +82,10 @@ create table if not exists tbl_user
 (
     id          int unsigned auto_increment comment '用户ID'
         primary key,
-    username    varchar(1023)                           not null comment '用户名',
-    password    varchar(1023) default '123456'          not null comment '密码',
+    username    varchar(255)                           not null comment '用户名',
+    password    varchar(255) default '123456'          not null comment '密码',
     role        int unsigned default '1'               not null comment '角色：0 封禁，1 普通用户，2 管理员，3 超级管理员',
-    email       varchar(1023)                           not null comment '邮箱',
+    email       varchar(255)                           not null comment '邮箱',
     avatar      text                                   not null comment '头像URL',
     signature   text                                   not null comment '个性签名',
     create_time timestamp    default CURRENT_TIMESTAMP not null comment '创建时间',
@@ -123,7 +123,7 @@ create table if not exists tbl_tag
 (
     id   int unsigned auto_increment comment '标签ID'
         primary key,
-    name varchar(1023) default '' not null comment '标签名'
+    name varchar(255) default '' not null comment '标签名'
 )
     comment '标签表';
 
