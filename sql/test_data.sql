@@ -2,80 +2,130 @@ USE stuoj_db;
 
 -- DML
 
--- Insert test data into tbl_judgement
-INSERT INTO tbl_judgement (submission_id, testcase_id, time, memory, stdout, stderr, compile_output, message, status) VALUES
-                                                                                                                            (1, 1, 0.5, 1024, 'Output 1', 'Error 1', 'Compile Output 1', 'Message 1', 1),
-                                                                                                                            (2, 2, 0.6, 2048, 'Output 2', 'Error 2', 'Compile Output 2', 'Message 2', 2),
-                                                                                                                            (3, 3, 0.7, 3072, 'Output 3', 'Error 3', 'Compile Output 3', 'Message 3', 3),
-                                                                                                                            (4, 4, 0.8, 4096, 'Output 4', 'Error 4', 'Compile Output 4', 'Message 4', 4),
-                                                                                                                            (5, 5, 0.9, 5120, 'Output 5', 'Error 5', 'Compile Output 5', 'Message 5', 5),
-                                                                                                                            (6, 6, 1.0, 6144, 'Output 6', 'Error 6', 'Compile Output 6', 'Message 6', 6),
-                                                                                                                            (7, 7, 1.1, 7168, 'Output 7', 'Error 7', 'Compile Output 7', 'Message 7', 7),
-                                                                                                                            (8, 8, 1.2, 8192, 'Output 8', 'Error 8', 'Compile Output 8', 'Message 8', 8),
-                                                                                                                            (9, 9, 1.3, 9216, 'Output 9', 'Error 9', 'Compile Output 9', 'Message 9', 9),
-                                                                                                                            (10, 10, 1.4, 10240, 'Output 10', 'Error 10', 'Compile Output 10', 'Message 10', 10);
+USE stuoj_db;
 
--- Insert test data into tbl_language
-INSERT INTO tbl_language (name) VALUES
-                                    ('Language 1'),
-                                    ('Language 2'),
-                                    ('Language 3'),
-                                    ('Language 4'),
-                                    ('Language 5'),
-                                    ('Language 6'),
-                                    ('Language 7'),
-                                    ('Language 8'),
-                                    ('Language 9'),
-                                    ('Language 10');
+-- Insert data into tbl_judgement
+INSERT INTO tbl_judgement (submission_id, testcase_id, time, memory, stdout, stderr, compile_output, message, status)
+VALUES
+(1, 1, 0.5, 1024, '输出1', '错误输出1', '编译输出1', '信息1', 1),
+(2, 2, 0.6, 2048, '输出2', '错误输出2', '编译输出2', '信息2', 2),
+(3, 3, 0.7, 3072, '输出3', '错误输出3', '编译输出3', '信息3', 3),
+(4, 4, 0.8, 4096, '输出4', '错误输出4', '编译输出4', '信息4', 4),
+(5, 5, 0.9, 5120, '输出5', '错误输出5', '编译输出5', '信息5', 5),
+(6, 6, 1.0, 6144, '输出6', '错误输出6', '编译输出6', '信息6', 6),
+(7, 7, 1.1, 7168, '输出7', '错误输出7', '编译输出7', '信息7', 7),
+(8, 8, 1.2, 8192, '输出8', '错误输出8', '编译输出8', '信息8', 8),
+(9, 9, 1.3, 9216, '输出9', '错误输出9', '编译输出9', '信息9', 9),
+(10, 10, 1.4, 10240, '输出10', '错误输出10', '编译输出10', '信息10', 10);
 
--- Insert test data into tbl_problem
-INSERT INTO tbl_problem (title, source, difficulty, time_limit, memory_limit, description, input, output, sample_input, sample_output, hint, status, create_time, update_time) VALUES
-                                                                                                                                                                                   ('Problem 1', 'Source 1', 1, 1.0, 1024, 'Description 1', 'Input 1', 'Output 1', 'Sample Input 1', 'Sample Output 1', 'Hint 1', 1, NOW(), NOW()),
-                                                                                                                                                                                   ('Problem 2', 'Source 2', 2, 1.1, 2048, 'Description 2', 'Input 2', 'Output 2', 'Sample Input 2', 'Sample Output 2', 'Hint 2', 2, NOW(), NOW()),
-                                                                                                                                                                                   ('Problem 3', 'Source 3', 3, 1.2, 3072, 'Description 3', 'Input 3', 'Output 3', 'Sample Input 3', 'Sample Output 3', 'Hint 3', 3, NOW(), NOW()),
-                                                                                                                                                                                   ('Problem 4', 'Source 4', 4, 1.3, 4096, 'Description 4', 'Input 4', 'Output 4', 'Sample Input 4', 'Sample Output 4', 'Hint 4', 4, NOW(), NOW()),
-                                                                                                                                                                                   ('Problem 5', 'Source 5', 5, 1.4, 5120, 'Description 5', 'Input 5', 'Output 5', 'Sample Input 5', 'Sample Output 5', 'Hint 5', 5, NOW(), NOW()),
-                                                                                                                                                                                   ('Problem 6', 'Source 6', 6, 1.5, 6144, 'Description 6', 'Input 6', 'Output 6', 'Sample Input 6', 'Sample Output 6', 'Hint 6', 6, NOW(), NOW()),
-                                                                                                                                                                                   ('Problem 7', 'Source 7', 7, 1.6, 7168, 'Description 7', 'Input 7', 'Output 7', 'Sample Input 7', 'Sample Output 7', 'Hint 7', 7, NOW(), NOW()),
-                                                                                                                                                                                   ('Problem 8', 'Source 8', 8, 1.7, 8192, 'Description 8', 'Input 8', 'Output 8', 'Sample Input 8', 'Sample Output 8', 'Hint 8', 8, NOW(), NOW()),
-                                                                                                                                                                                   ('Problem 9', 'Source 9', 9, 1.8, 9216, 'Description 9', 'Input 9', 'Output 9', 'Sample Input 9', 'Sample Output 9', 'Hint 9', 9, NOW(), NOW()),
-                                                                                                                                                                                   ('Problem 10', 'Source 10', 10, 1.9, 10240, 'Description 10', 'Input 10', 'Output 10', 'Sample Input 10', 'Sample Output 10', 'Hint 10', 10, NOW(), NOW());
+-- Insert data into tbl_language
+INSERT INTO tbl_language (name)
+VALUES
+('C++'),
+('Java'),
+('Python'),
+('JavaScript'),
+('Ruby'),
+('Go'),
+('Swift'),
+('Kotlin'),
+('PHP'),
+('Rust');
 
--- Insert test data into tbl_submission
-INSERT INTO tbl_submission (user_id, problem_id, status, score, submit_time, language_id, length, memory, time, source_code) VALUES
-                                                                                                                                 (1, 1, 0, 10, NOW(), 1, 100, 1024, 0.5, 'Source Code 1'),
-                                                                                                                                 (2, 2, 1, 20, NOW(), 2, 200, 2048, 0.6, 'Source Code 2'),
-                                                                                                                                 (3, 3, 2, 30, NOW(), 3, 300, 3072, 0.7, 'Source Code 3'),
-                                                                                                                                 (4, 4, 3, 40, NOW(), 4, 400, 4096, 0.8, 'Source Code 4'),
-                                                                                                                                 (5, 5, 4, 50, NOW(), 5, 500, 5120, 0.9, 'Source Code 5'),
-                                                                                                                                 (6, 6, 5, 60, NOW(), 6, 600, 6144, 1.0, 'Source Code 6'),
-                                                                                                                                 (7, 7, 6, 70, NOW(), 7, 700, 7168, 1.1, 'Source Code 7'),
-                                                                                                                                 (8, 8, 7, 80, NOW(), 8, 800, 8192, 1.2, 'Source Code 8'),
-                                                                                                                                 (9, 9, 8, 90, NOW(), 9, 900, 9216, 1.3, 'Source Code 9'),
-                                                                                                                                 (10, 10, 9, 100, NOW(), 10, 1000, 10240, 1.4, 'Source Code 10');
+-- Insert data into tbl_problem
+INSERT INTO tbl_problem (title, source, difficulty, time_limit, memory_limit, description, input, output, sample_input, sample_output, hint, status)
+VALUES
+('两数之和', 'LeetCode', 1, 1.0, 131072, '给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那两个整数，并返回他们的数组下标。', '输入：nums = [2, 7, 11, 15], target = 9', '输出：[0, 1]', '2, 7, 11, 15', '0, 1', '使用哈希表', 1),
+('反转链表', 'LeetCode', 2, 1.0, 131072, '反转一个单链表。', '输入：1->2->3->4->5->NULL', '输出：5->4->3->2->1->NULL', '1, 2, 3, 4, 5', '5, 4, 3, 2, 1', '迭代或递归', 1),
+('合并两个有序链表', 'LeetCode', 2, 1.0, 131072, '将两个升序链表合并为一个新的升序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。', '输入：1->2->4, 1->3->4', '输出：1->1->2->3->4->4', '1, 2, 4', '1, 1, 2, 3, 4, 4', '递归', 1),
+('最长回文子串', 'LeetCode', 3, 1.0, 131072, '给你一个字符串 s，找到 s 中最长的回文子串。', '输入：babad', '输出：bab', 'babad', 'bab', '动态规划', 1),
+('盛最多水的容器', 'LeetCode', 3, 1.0, 131072, '给定 n 个非负整数 a1，a2，...，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0) 。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。', '输入：[1,8,6,2,5,4,8,3,7]', '输出：49', '1, 8, 6, 2, 5, 4, 8, 3, 7', '49', '双指针', 1),
+('三数之和', 'LeetCode', 2, 1.0, 131072, '给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？请你找出所有和为 0 且不重复的三元组。', '输入：nums = [-1, 0, 1, 2, -1, -4]', '输出：[[-1, 0, 1], [-1, -1, 2]]', '-1, 0, 1, 2, -1, -4', '[-1, 0, 1], [-1, -1, 2]', '排序+双指针', 1),
+('电话号码的字母组合', 'LeetCode', 2, 1.0, 131072, '给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。答案可以按任意顺序返回。', '输入：digits = "23"', '输出：["ad","ae","af","bd","be","bf","cd","ce","cf"]', '23', 'ad, ae, af, bd, be, bf, cd, ce, cf', '回溯', 1),
+('删除链表的倒数第 N 个结点', 'LeetCode', 2, 1.0, 131072, '给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。', '输入：head = [1,2,3,4,5], n = 2', '输出：[1,2,3,5]', '1, 2, 3, 4, 5', '1, 2, 3, 5', '双指针', 1),
+('有效的括号', 'LeetCode', 1, 1.0, 131072, '给定一个只包括 \'(\', \')\', \'{\', \'}\', \'[\', \']\' 的字符串 s ，判断字符串是否有效。', '输入：s = "()[]{}"', '输出：true', '()[]{}', 'true', '栈', 1),
+('合并区间', 'LeetCode', 2, 1.0, 131072, '以数组 intervals 表示若干个区间的集合，其中单个区间为 intervals[i] = [starti, endi] 。请你合并所有重叠的区间，并返回一个不重叠的区间数组，该数组需恰好覆盖输入中的所有区间。', '输入：intervals = [[1,3],[2,6],[8,10],[15,18]]', '输出：[[1,6],[8,10],[15,18]]', '1, 3, 2, 6, 8, 10, 15, 18', '1, 6, 8, 10, 15, 18', '排序', 1);
 
--- Insert test data into tbl_testcase
-INSERT INTO tbl_testcase (serial, problem_id, test_input, test_output) VALUES
-                                                                             (1, 1, 'Test Input 1', 'Test Output 1'),
-                                                                             (2, 2, 'Test Input 2', 'Test Output 2'),
-                                                                             (3, 3, 'Test Input 3', 'Test Output 3'),
-                                                                             (4, 4, 'Test Input 4', 'Test Output 4'),
-                                                                             (5, 5, 'Test Input 5', 'Test Output 5'),
-                                                                             (6, 6, 'Test Input 6', 'Test Output 6'),
-                                                                             (7, 7, 'Test Input 7', 'Test Output 7'),
-                                                                             (8, 8, 'Test Input 8', 'Test Output 8'),
-                                                                             (9, 9, 'Test Input 9', 'Test Output 9'),
-                                                                             (10, 10, 'Test Input 10', 'Test Output 10');
+-- Insert data into tbl_submission
+INSERT INTO tbl_submission (user_id, problem_id, status, score, language_id, length, memory, time, source_code)
+VALUES
+(1, 1, 1, 100, 1, 200, 1024, 0.5, '源代码1'),
+(2, 2, 2, 90, 2, 300, 2048, 0.6, '源代码2'),
+(3, 3, 3, 80, 3, 400, 3072, 0.7, '源代码3'),
+(4, 4, 4, 70, 4, 500, 4096, 0.8, '源代码4'),
+(5, 5, 5, 60, 5, 600, 5120, 0.9, '源代码5'),
+(6, 6, 6, 50, 6, 700, 6144, 1.0, '源代码6'),
+(7, 7, 7, 40, 7, 800, 7168, 1.1, '源代码7'),
+(8, 8, 8, 30, 8, 900, 8192, 1.2, '源代码8'),
+(9, 9, 9, 20, 9, 1000, 9216, 1.3, '源代码9'),
+(10, 10, 10, 10, 10, 1100, 10240, 1.4, '源代码10');
 
--- Insert test data into tbl_user
-INSERT INTO tbl_user (username, password, role, email, avatar, create_time, update_time) VALUES
-                                                                                             ('user1', 'pass123', 1, 'user1@example.com', 'http://example.com/avatar1.png', '2023-01-01 10:00:00', '2023-01-01 10:00:00'),
-                                                                                             ('user2', 'pass456', 1, 'user2@example.com', 'http://example.com/avatar2.png', '2023-01-02 11:00:00', '2023-01-02 11:00:00'),
-                                                                                             ('user3', 'pass789', 1, 'user3@example.com', 'http://example.com/avatar3.png', '2023-01-03 12:00:00', '2023-01-03 12:00:00'),
-                                                                                             ('user4', 'pass101', 1, 'user4@example.com', 'http://example.com/avatar4.png', '2023-01-04 13:00:00', '2023-01-04 13:00:00'),
-                                                                                             ('user5', 'pass102', 1, 'user5@example.com', 'http://example.com/avatar5.png', '2023-01-05 14:00:00', '2023-01-05 14:00:00'),
-                                                                                             ('user6', 'pass103', 1, 'user6@example.com', 'http://example.com/avatar6.png', '2023-01-06 15:00:00', '2023-01-06 15:00:00'),
-                                                                                             ('user7', 'pass104', 1, 'user7@example.com', 'http://example.com/avatar7.png', '2023-01-07 16:00:00', '2023-01-07 16:00:00'),
-                                                                                             ('user8', 'pass105', 1, 'user8@example.com', 'http://example.com/avatar8.png', '2023-01-08 17:00:00', '2023-01-08 17:00:00'),
-                                                                                             ('user9', 'pass106', 1, 'user9@example.com', 'http://example.com/avatar9.png', '2023-01-09 18:00:00', '2023-01-09 18:00:00'),
-                                                                                             ('user10', 'pass107', 1, 'user10@example.com', 'http://example.com/avatar10.png', '2023-01-10 19:00:00', '2023-01-10 19:00:00');
+-- Insert data into tbl_testcase
+INSERT INTO tbl_testcase (serial, problem_id, test_input, test_output)
+VALUES
+(1, 1, '测试输入1', '测试输出1'),
+(2, 2, '测试输入2', '测试输出2'),
+(3, 3, '测试输入3', '测试输出3'),
+(4, 4, '测试输入4', '测试输出4'),
+(5, 5, '测试输入5', '测试输出5'),
+(6, 6, '测试输入6', '测试输出6'),
+(7, 7, '测试输入7', '测试输出7'),
+(8, 8, '测试输入8', '测试输出8'),
+(9, 9, '测试输入9', '测试输出9'),
+(10, 10, '测试输入10', '测试输出10');
+
+-- Insert data into tbl_user
+INSERT INTO tbl_user (username, password, role, email, avatar, signature)
+VALUES
+('user1', 'password1', 1, 'user1@example.com', 'http://example.com/avatar1.png', '个性签名1'),
+('user2', 'password2', 1, 'user2@example.com', 'http://example.com/avatar2.png', '个性签名2'),
+('user3', 'password3', 1, 'user3@example.com', 'http://example.com/avatar3.png', '个性签名3'),
+('user4', 'password4', 1, 'user4@example.com', 'http://example.com/avatar4.png', '个性签名4'),
+('user5', 'password5', 1, 'user5@example.com', 'http://example.com/avatar5.png', '个性签名5'),
+('user6', 'password6', 1, 'user6@example.com', 'http://example.com/avatar6.png', '个性签名6'),
+('user7', 'password7', 1, 'user7@example.com', 'http://example.com/avatar7.png', '个性签名7'),
+('user8', 'password8', 1, 'user8@example.com', 'http://example.com/avatar8.png', '个性签名8'),
+('user9', 'password9', 1, 'user9@example.com', 'http://example.com/avatar9.png', '个性签名9'),
+('user10', 'password10', 1, 'user10@example.com', 'http://example.com/avatar10.png', '个性签名10');
+
+-- Insert data into tbl_problem_history
+INSERT INTO tbl_problem_history (user_id, problem_id, title, source, difficulty, time_limit, memory_limit, description, input, output, sample_input, sample_output, hint, operation)
+VALUES
+(1, 1, '两数之和', 'LeetCode', 1, 1.0, 131072, '给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那两个整数，并返回他们的数组下标。', '输入：nums = [2, 7, 11, 15], target = 9', '输出：[0, 1]', '2, 7, 11, 15', '0, 1', '使用哈希表', 1),
+(2, 2, '反转链表', 'LeetCode', 2, 1.0, 131072, '反转一个单链表。', '输入：1->2->3->4->5->NULL', '输出：5->4->3->2->1->NULL', '1, 2, 3, 4, 5', '5, 4, 3, 2, 1', '迭代或递归', 1),
+(3, 3, '合并两个有序链表', 'LeetCode', 2, 1.0, 131072, '将两个升序链表合并为一个新的升序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。', '输入：1->2->4, 1->3->4', '输出：1->1->2->3->4->4', '1, 2, 4', '1, 1, 2, 3, 4, 4', '递归', 1),
+(4, 4, '最长回文子串', 'LeetCode', 3, 1.0, 131072, '给你一个字符串 s，找到 s 中最长的回文子串。', '输入：babad', '输出：bab', 'babad', 'bab', '动态规划', 1),
+(5, 5, '盛最多水的容器', 'LeetCode', 3, 1.0, 131072, '给定 n 个非负整数 a1，a2，...，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0) 。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。', '输入：[1,8,6,2,5,4,8,3,7]', '输出：49', '1, 8, 6, 2, 5, 4, 8, 3, 7', '49', '双指针', 1),
+(6, 6, '三数之和', 'LeetCode', 2, 1.0, 131072, '给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？请你找出所有和为 0 且不重复的三元组。', '输入：nums = [-1, 0, 1, 2, -1, -4]', '输出：[[-1, 0, 1], [-1, -1, 2]]', '-1, 0, 1, 2, -1, -4', '[-1, 0, 1], [-1, -1, 2]', '排序+双指针', 1),
+(7, 7, '电话号码的字母组合', 'LeetCode', 2, 1.0, 131072, '给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。答案可以按任意顺序返回。', '输入：digits = "23"', '输出：["ad","ae","af","bd","be","bf","cd","ce","cf"]', '23', 'ad, ae, af, bd, be, bf, cd, ce, cf', '回溯', 1),
+(8, 8, '删除链表的倒数第 N 个结点', 'LeetCode', 2, 1.0, 131072, '给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。', '输入：head = [1,2,3,4,5], n = 2', '输出：[1,2,3,5]', '1, 2, 3, 4, 5', '1, 2, 3, 5', '双指针', 1),
+(9, 9, '有效的括号', 'LeetCode', 1, 1.0, 131072, '给定一个只包括 \'(\', \')\', \'{\', \'}\', \'[\', \']\' 的字符串 s ，判断字符串是否有效。', '输入：s = "()[]{}"', '输出：true', '()[]{}', 'true', '栈', 1),
+(10, 10, '合并区间', 'LeetCode', 2, 1.0, 131072, '以数组 intervals 表示若干个区间的集合，其中单个区间为 intervals[i] = [starti, endi] 。请你合并所有重叠的区间，并返回一个不重叠的区间数组，该数组需恰好覆盖输入中的所有区间。', '输入：intervals = [[1,3],[2,6],[8,10],[15,18]]', '输出：[[1,6],[8,10],[15,18]]', '1, 3, 2, 6, 8, 10, 15, 18', '1, 6, 8, 10, 15, 18', '排序', 1);
+
+-- Insert data into tbl_tag
+INSERT INTO tbl_tag (name)
+VALUES
+('数组'),
+('链表'),
+('字符串'),
+('动态规划'),
+('双指针'),
+('排序'),
+('回溯'),
+('栈'),
+('贪心'),
+('图');
+
+-- Insert data into tbl_problem_tag
+INSERT INTO tbl_problem_tag (problem_id, tag_id)
+VALUES
+(1, 1),
+(2, 2),
+(3, 2),
+(4, 3),
+(5, 5),
+(6, 1),
+(7, 7),
+(8, 2),
+(9, 8),
+(10, 6);
