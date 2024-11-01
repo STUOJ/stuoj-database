@@ -123,7 +123,9 @@ create table if not exists tbl_tag
 (
     id   int unsigned auto_increment comment '标签ID'
         primary key,
-    name varchar(255) default '' not null comment '标签名'
+    name varchar(255) default '' not null comment '标签名',
+    constraint tbl_tag_pk
+        unique (name)
 )
     comment '标签表';
 
