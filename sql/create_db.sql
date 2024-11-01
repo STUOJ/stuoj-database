@@ -114,6 +114,7 @@ create table if not exists tbl_problem_history
     sample_input  longtext                        not null comment '输入样例',
     sample_output longtext                        not null comment '输出样例',
     hint          longtext                        not null comment '提示',
+    operation     int unsigned   default '0'      not null comment '操作：0 未知，1 添加，2 修改，3 删除',
     create_time   timestamp      default (now())  not null comment '创建时间'
 )
     comment '题目历史记录表';
