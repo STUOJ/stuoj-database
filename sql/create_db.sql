@@ -97,3 +97,24 @@ create table if not exists tbl_user
 )
     comment '用户表';
 
+create table if not exists tbl_problem_history
+(
+    id            int unsigned auto_increment comment '记录ID'
+        primary key,
+    user_id       int            default 0        not null comment '用户ID',
+    problem_id    int unsigned   default '0'      not null comment '题目ID',
+    title         text                            not null comment '标题',
+    source        text                            not null comment '题目来源',
+    difficulty    int unsigned   default '0'      not null comment '难度',
+    time_limit    float unsigned default '1'      not null comment '时间限制（s）',
+    memory_limit  int unsigned   default '131072' not null comment '内存限制（kb）',
+    description   longtext                        not null comment '题面',
+    input         longtext                        not null comment '输入说明',
+    output        longtext                        not null comment '输出说明',
+    sample_input  longtext                        not null comment '输入样例',
+    sample_output longtext                        not null comment '输出样例',
+    hint          longtext                        not null comment '提示',
+    create_time   timestamp      default (now())  not null comment '创建时间'
+)
+    comment '题目历史记录表';
+
