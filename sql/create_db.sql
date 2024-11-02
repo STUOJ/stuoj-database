@@ -138,3 +138,18 @@ create table if not exists tbl_problem_tag
 )
     comment '题目标签关系表';
 
+create table if not exists tbl_solution
+(
+    id int unsigned auto_increment comment '题解ID' primary key,
+    user_id     int unsigned   default '0'     not null comment '用户ID',
+    problem_id  int unsigned   default '0'     not null comment '题目ID',
+    language_id int unsigned   default '0'     not null comment '语言ID',
+    length      int unsigned   default '0'     not null comment '源代码长度',
+    memory      int unsigned   default '0'     not null comment '内存（kb）',
+    time        float unsigned default '0'     not null comment '运行耗时（s）',
+    source_code longtext                       not null comment '源代码',
+    status      int unsigned   default '0'     not null comment '状态：1 有效，2 编辑中，3 调试中，4 作废',
+    create_time timestamp      default (now()) not null comment '创建时间',
+    update_time timestamp      default (now()) not null comment '更新时间'
+)
+    comment '题解表';
