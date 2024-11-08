@@ -142,11 +142,9 @@ create table if not exists tbl_solution
 (
     id          int unsigned auto_increment comment '题解ID'
         primary key,
-    language_id int unsigned default '0'     not null comment '语言ID',
-    problem_id  int unsigned default '0'     not null comment '题目ID',
-    source_code longtext                     not null comment '源代码',
-    create_time timestamp    default (now()) not null comment '创建时间',
-    update_time timestamp    default (now()) not null comment '更新时间'
+    language_id int unsigned default '0' not null comment '语言ID',
+    problem_id  int unsigned default '0' not null comment '题目ID',
+    source_code longtext                 not null comment '源代码'
 )
     comment '题解表';
 
