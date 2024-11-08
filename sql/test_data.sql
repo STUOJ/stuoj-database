@@ -129,3 +129,17 @@ VALUES
 (8, 2),
 (9, 8),
 (10, 6);
+
+-- Insert data into tbl_solution
+INSERT INTO tbl_solution (language_id, problem_id, source_code)
+VALUES
+(1, 1, 'public class Solution { public int[] twoSum(int[] nums, int target) { Map<Integer, Integer> map = new HashMap<>(); for (int i = 0; i < nums.length; i++) { int complement = target - nums[i]; if (map.containsKey(complement)) { return new int[] { map.get(complement), i }; } map.put(nums[i], i); } throw new IllegalArgumentException("No two sum solution"); } }'),
+(2, 2, 'class ListNode: def __init__(self, val=0, next=None): self.val = val self.next = next class Solution: def reverseList(self, head: ListNode) -> ListNode: prev = None curr = head while curr: next_temp = curr.next curr.next = prev prev = curr curr = next_temp return prev'),
+(3, 3, 'class ListNode: def __init__(self, val=0, next=None): self.val = val self.next = next class Solution: def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode: if not l1 or not l2: return l1 or l2 if l1.val < l2.val: l1.next = self.mergeTwoLists(l1.next, l2) return l1 else: l2.next = self.mergeTwoLists(l1, l2.next) return l2'),
+(4, 4, 'class Solution: def longestPalindrome(self, s: str) -> str: res = "" for i in range(len(s)): odd = self.helper(s, i, i) even = self.helper(s, i, i + 1) res = max(res, odd, even, key=len) return res def helper(self, s, l, r): while l >= 0 and r < len(s) and s[l] == s[r]: l -= 1 r += 1 return s[l + 1:r]'),
+(5, 5, 'class Solution: def maxArea(self, height: List[int]) -> int: l, r = 0, len(height) - 1 max_area = 0 while l < r: max_area = max(max_area, min(height[l], height[r]) * (r - l)) if height[l] < height[r]: l += 1 else: r -= 1 return max_area'),
+(6, 6, 'class Solution: def threeSum(self, nums: List[int]) -> List[List[int]]: res = [] nums.sort() for i in range(len(nums)): if i > 0 and nums[i] == nums[i - 1]: continue l, r = i + 1, len(nums) - 1 while l < r: s = nums[i] + nums[l] + nums[r] if s < 0: l += 1 elif s > 0: r -= 1 else: res.append((nums[i], nums[l], nums[r])) while l < r and nums[l] == nums[l + 1]: l += 1 while l < r and nums[r] == nums[r - 1]: r -= 1 l += 1 r -= 1 return res'),
+(7, 7, 'class Solution: def letterCombinations(self, digits: str) -> List[str]: if not digits: return [] res = [""] digit_to_char = {"2": "abc", "3": "def", "4": "ghi", "5": "jkl", "6": "mno", "7": "pqrs", "8": "tuv", "9": "wxyz"} for digit in digits: res = [prefix + char for prefix in res for char in digit_to_char[digit]] return res'),
+(8, 8, 'class ListNode: def __init__(self, val=0, next=None): self.val = val self.next = next class Solution: def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode: dummy = ListNode(0) dummy.next = head first = second = dummy for _ in range(n + 1): first = first.next while first: first = first.next second = second.next second.next = second.next.next return dummy.next'),
+(9, 9, 'class Solution: def isValid(self, s: str) -> bool: stack = [] mapping = {")": "(", "}": "{", "]": "["} for char in s: if char in mapping: top_element = stack.pop() if stack else "#" if mapping[char] != top_element: return False else: stack.append(char) return not stack'),
+(10, 10, 'class Solution: def merge(self, intervals: List[List[int]]) -> List[List[int]]: intervals.sort(key=lambda x: x[0]) merged = [] for interval in intervals: if not merged or merged[-1][1] < interval[0]: merged.append(interval) else: merged[-1][1] = max(merged[-1][1], interval[1]) return merged');
