@@ -16,7 +16,7 @@ create table if not exists tbl_judgement
     stderr         longtext                   not null comment '标准错误输出',
     compile_output longtext                   not null comment '编译输出',
     message        longtext                   not null comment '信息',
-    status         int unsigned   default '0' not null comment '状态'
+    status         int unsigned   default '0' not null comment '提交状态：0 Pend, 1 In Queue, 2 Proc, 3 AC, 4 WA, 5 TLE, 6 CE, 7 RE(SIGSEGV), 8 RE(SIGXFSZ), 9 RE(SIGFPE), 10 RE(SIGABRT), 11 RE(NZEC), 12 RE(Other), 13 IE, 14 EFE'
 )
     comment '评测点结果表';
 
@@ -34,7 +34,7 @@ create table if not exists tbl_problem
         primary key,
     title         text                            not null comment '标题',
     source        text                            not null comment '题目来源',
-    difficulty    int unsigned   default '0'      not null comment '难度： 0 暂无评定，1 普及−，2 普及/提高−，3 普及+/提高，4 提高+/省选− ，5 省选/NOI−，6 NOI/NOI+/CTSC',
+    difficulty int unsigned default '0' not null comment '难度：0 暂无评定，1 E级（入门），2 D级（简单），3 C级（中等），4 B级（较难），5 A级（困难），6 S级（超级困难）',
     time_limit    float unsigned default '1'      not null comment '时间限制（s）',
     memory_limit  int unsigned   default '131072' not null comment '内存限制（kb）',
     description   longtext                        not null comment '题面',
@@ -43,7 +43,7 @@ create table if not exists tbl_problem
     sample_input  longtext                        not null comment '输入样例',
     sample_output longtext                        not null comment '输出样例',
     hint          longtext                        not null comment '提示',
-    status        int unsigned   default '1'      not null comment '状态：1 公开，2 出题中，3 调试中，4 作废',
+    status        int unsigned   default '1'      not null comment '状态：0 作废，1 公开，2 出题中，3 调试中',
     create_time   timestamp      default (now())  not null comment '创建时间',
     update_time   timestamp      default (now())  not null comment '更新时间'
 )
@@ -55,7 +55,7 @@ create table if not exists tbl_submission
         primary key,
     user_id     int unsigned   default '0'     not null comment '用户ID',
     problem_id  int unsigned   default '0'     not null comment '题目ID',
-    status      int unsigned   default '0'     not null comment '状态：0 未评测',
+    status      int unsigned   default '0'     not null comment '提交状态：0 Pend, 1 In Queue, 2 Proc, 3 AC, 4 WA, 5 TLE, 6 CE, 7 RE(SIGSEGV), 8 RE(SIGXFSZ), 9 RE(SIGFPE), 10 RE(SIGABRT), 11 RE(NZEC), 12 RE(Other), 13 IE, 14 EFE',
     score       int unsigned   default '0'     not null comment '分数',
     language_id int unsigned   default '0'     not null comment '语言ID',
     length      int unsigned   default '0'     not null comment '源代码长度',
