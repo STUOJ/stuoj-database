@@ -6,10 +6,10 @@ USE stuoj_db;
 
 create table if not exists tbl_judgement
 (
-    id             int unsigned auto_increment comment '评测点ID'
+    id             int unsigned auto_increment comment '评测点结果ID'
         primary key,
     submission_id  int unsigned   default '0' not null comment '提交记录ID',
-    testcase_id  int unsigned   default '0' not null comment '评测点ID',
+    testcase_id  int unsigned   default '0' not null comment '评测点记录ID',
     time           float unsigned default '0' not null comment '运行耗时（s）',
     memory         int unsigned   default '0' not null comment '内存（kb）',
     stdout         longtext                   not null comment '标准输出',
@@ -69,7 +69,7 @@ create table if not exists tbl_submission
 
 create table if not exists tbl_testcase
 (
-    id          int unsigned auto_increment comment '评测点ID'
+    id          int unsigned auto_increment comment '评测点数据ID'
         primary key,
     serial      int unsigned default '0' not null comment '评测点序号',
     problem_id  int unsigned default '0' not null comment '题目ID',
