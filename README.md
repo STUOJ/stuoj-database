@@ -24,7 +24,7 @@
 
 ## 类图
 
-![image](https://github.com/user-attachments/assets/2cf737d3-2aa0-43f4-8b91-97619212c429)
+![image](https://github.com/user-attachments/assets/ca2b0a98-fee1-4e0f-bd97-499679be01fc)
 
 ![image](https://github.com/user-attachments/assets/a0fde827-d55c-4e2f-97e2-935fcc276456)
 
