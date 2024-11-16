@@ -7,6 +7,8 @@
 - clear_data.sql：清空所有数据，保留表结构
 - test_data.sql：导入测试数据
 
-## 关系图
+## 类图
+
+![image](https://github.com/user-attachments/assets/2cf737d3-2aa0-43f4-8b91-97619212c429)
 
 ![image](https://github.com/user-attachments/assets/a0fde827-d55c-4e2f-97e2-935fcc276456)
