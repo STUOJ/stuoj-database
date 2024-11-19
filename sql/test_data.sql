@@ -143,3 +143,29 @@ VALUES
 (8, 8, 'class ListNode: def __init__(self, val=0, next=None): self.val = val self.next = next class Solution: def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode: dummy = ListNode(0) dummy.next = head first = second = dummy for _ in range(n + 1): first = first.next while first: first = first.next second = second.next second.next = second.next.next return dummy.next'),
 (9, 9, 'class Solution: def isValid(self, s: str) -> bool: stack = [] mapping = {")": "(", "}": "{", "]": "["} for char in s: if char in mapping: top_element = stack.pop() if stack else "#" if mapping[char] != top_element: return False else: stack.append(char) return not stack'),
 (10, 10, 'class Solution: def merge(self, intervals: List[List[int]]) -> List[List[int]]: intervals.sort(key=lambda x: x[0]) merged = [] for interval in intervals: if not merged or merged[-1][1] < interval[0]: merged.append(interval) else: merged[-1][1] = max(merged[-1][1], interval[1]) return merged');
+
+-- Insert data into tbl_blog
+INSERT INTO tbl_blog (user_id, problem_id, title, content, status, create_time, update_time) VALUES
+(1, 0, '博客标题1', '这是博客内容1。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(2, 1, '博客标题2', '这是博客内容2。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(3, 2, '博客标题3', '这是博客内容3。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(4, 3, '博客标题4', '这是博客内容4。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(5, 4, '博客标题5', '这是博客内容5。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(6, 5, '博客标题6', '这是博客内容6。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(7, 6, '博客标题7', '这是博客内容7。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(8, 7, '博客标题8', '这是博客内容8。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(9, 8, '博客标题9', '这是博客内容9。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(10, 9, '博客标题10', '这是博客内容10。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+-- Insert data into tbl_comment
+INSERT INTO tbl_comment (user_id, blog_id, content, status, create_time, update_time) VALUES
+(1, 1, '这是评论内容1。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(2, 2, '这是评论内容2。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(3, 3, '这是评论内容3。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(4, 4, '这是评论内容4。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(5, 5, '这是评论内容5。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(6, 6, '这是评论内容6。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(7, 7, '这是评论内容7。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(8, 8, '这是评论内容8。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(9, 9, '这是评论内容9。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(10, 10, '这是评论内容10。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
