@@ -30,8 +30,7 @@ create table if not exists tbl_language
 
 create table if not exists tbl_problem
 (
-    id            int unsigned auto_increment comment '题目ID'
-        primary key,
+    id int unsigned auto_increment comment '题目ID' primary key,
     title         text                            not null comment '标题',
     source        text                            not null comment '题目来源',
     difficulty int unsigned default '0' not null comment '难度：0 暂无评定，1 E级（入门），2 D级（简单），3 C级（中等），4 B级（较难），5 A级（困难），6 S级（超级困难）',
@@ -97,11 +96,11 @@ create table if not exists tbl_user
 )
     comment '用户表';
 
-create table if not exists tbl_problem_history
+create table if not exists tbl_history
 (
     id            int unsigned auto_increment comment '记录ID'
         primary key,
-    user_id       int            default 0        not null comment '用户ID',
+    user_id       int unsigned           default 0        not null comment '用户ID',
     problem_id    int unsigned   default '0'      not null comment '题目ID',
     title         text                            not null comment '标题',
     source        text                            not null comment '题目来源',
@@ -147,4 +146,29 @@ create table if not exists tbl_solution
     source_code longtext                 not null comment '源代码'
 )
     comment '题解表';
+
+create table tbl_blog
+(
+    id int unsigned auto_increment comment '博客ID' primary key,
+    user_id       int unsigned            default 0        not null comment '用户ID',
+    problem_id    int unsigned   default '0'      not null comment '关联题目ID：0 不关联',
+    title         text                            not null comment '标题',
+    content     longtext                        not null comment '内容',
+    status      int unsigned default '1' not null comment '状态：0 被屏蔽，1 公开，2 草稿',
+    create_time timestamp default CURRENT_TIMESTAMP not null comment '创建时间',
+    update_time timestamp default CURRENT_TIMESTAMP not null comment '更新时间'
+)
+    comment '博客表';
+
+create table tbl_comment
+(
+    id int unsigned auto_increment comment '评论ID' primary key,
+    user_id       int unsigned            default 0        not null comment '用户ID',
+    blog_id    int unsigned   default '0'      not null comment '博客ID',
+    content     longtext                        not null comment '内容',
+    status      int unsigned default '1' not null comment '状态：0 被屏蔽，1 公开，2 草稿',
+    create_time timestamp default CURRENT_TIMESTAMP not null comment '创建时间',
+    update_time timestamp default CURRENT_TIMESTAMP not null comment '更新时间'
+)
+    comment '评论表';
 
