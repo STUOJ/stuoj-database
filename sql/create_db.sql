@@ -166,7 +166,7 @@ create table tbl_comment
     user_id       int unsigned            default 0        not null comment '用户ID',
     blog_id    int unsigned   default '0'      not null comment '博客ID',
     content     longtext                        not null comment '内容',
-    status      int unsigned default '1' not null comment '状态：0 被屏蔽，1 公开，2 草稿，3 待审核',
+    status      int unsigned default '1' not null comment '状态：0 被屏蔽，1 公开',
     create_time timestamp default CURRENT_TIMESTAMP not null comment '创建时间',
     update_time timestamp default CURRENT_TIMESTAMP not null comment '更新时间'
 )
