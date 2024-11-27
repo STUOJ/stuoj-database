@@ -22,7 +22,9 @@
 | 评测点数据表  | testcase        | 存储代码评测使用的输入和预期输出数据表  |
 | 用户表     | user            | 存储用户信息的数据表           |
 
-## 类图
+## UML
+
+### 类图
 
 ![image](https://github.com/user-attachments/assets/ca2b0a98-fee1-4e0f-bd97-499679be01fc)
 
