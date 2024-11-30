@@ -30,6 +30,20 @@
 
 ![image](https://github.com/user-attachments/assets/d5db2957-8446-4081-9462-fb7f31c31a2f)
 
+### 状态图
+
+#### 用户
+![image](https://github.com/user-attachments/assets/ebcff400-f7ba-433c-93be-47d211beca01)
+
+#### 题目
+![image](https://github.com/user-attachments/assets/31519b73-9180-4e6b-bb60-28e562e8e218)
+
+#### 提交记录
+![image](https://github.com/user-attachments/assets/4538e435-d39c-4851-90a3-57317acd2be7)
+
+#### 博客
+![image](https://github.com/user-attachments/assets/a48cf23f-ba6b-42fa-99be-3d32abde7a9f)
+
 ## 字段说明
 
 ### tbl_judgement
