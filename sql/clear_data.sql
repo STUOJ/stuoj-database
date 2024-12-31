@@ -6,7 +6,7 @@ truncate table tbl_language;
 
 truncate table tbl_problem;
 
-truncate table tbl_problem_history;
+truncate table tbl_history;
 
 truncate table tbl_problem_tag;
 

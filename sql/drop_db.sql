@@ -6,7 +6,7 @@ drop table if exists tbl_language;
 
 drop table if exists tbl_problem;
 
-drop table if exists tbl_problem_history;
+drop table if exists tbl_history;
 
 drop table if exists tbl_problem_tag;
 
