@@ -88,7 +88,7 @@
 | 创建时间 | create_time   | timestamp      | CURRENT_TIMESTAMP | 记录创建的时间                |
 | 更新时间 | update_time   | timestamp      | CURRENT_TIMESTAMP | 记录上次更新的时间              |
 
-### tbl_problem_history
+### tbl_history
 
 | 字段   | 字段名           | 数据类型           | 默认值               | 解释                     |
 |------|---------------|----------------|-------------------|------------------------|
