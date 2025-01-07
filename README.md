@@ -14,7 +14,7 @@
 | 评测点表    | judgement       | 记录代码运行状态和评测结果的数据表    |
 | 语言表     | language        | 存储编程语言信息的数据表         |
 | 题目表     | problem         | 存储ACM-ICPC算法题目信息的数据表 |
-| 题目历史记录表 | problem_history | 记录题目修改历史的数据表         |
+| 题目历史记录表 | history | 记录题目修改历史的数据表         |
 | 题目标签关系表 | problem_tag     | 存储题目与标签关系的数据表        |
 | 题解表     | solution        | 存储题目标准答案的数据表         |
 | 提交信息表   | submission      | 记录题目提交信息和代码的数据表      |
@@ -88,7 +88,7 @@
 | 创建时间 | create_time   | timestamp      | CURRENT_TIMESTAMP | 记录创建的时间                |
 | 更新时间 | update_time   | timestamp      | CURRENT_TIMESTAMP | 记录上次更新的时间              |
 
-### tbl_problem_history
+### tbl_history
 
 | 字段   | 字段名           | 数据类型           | 默认值               | 解释                     |
 |------|---------------|----------------|-------------------|------------------------|
