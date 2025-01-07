@@ -89,7 +89,7 @@ VALUES
 ('user10', 'password10', 1, 'user10@example.com', 'http://example.com/avatar10.png', '个性签名10');
 
 -- Insert data into tbl_problem_history
-INSERT INTO tbl_problem_history (user_id, problem_id, title, source, difficulty, time_limit, memory_limit, description, input, output, sample_input, sample_output, hint, operation)
+INSERT INTO tbl_history (user_id, problem_id, title, source, difficulty, time_limit, memory_limit, description, input, output, sample_input, sample_output, hint, operation)
 VALUES
 (1, 1, '两数之和', 'LeetCode', 1, 1.0, 131072, '给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那两个整数，并返回他们的数组下标。', '输入：nums = [2, 7, 11, 15], target = 9', '输出：[0, 1]', '2, 7, 11, 15', '0, 1', '使用哈希表', 1),
 (2, 2, '反转链表', 'LeetCode', 2, 1.0, 131072, '反转一个单链表。', '输入：1->2->3->4->5->NULL', '输出：5->4->3->2->1->NULL', '1, 2, 3, 4, 5', '5, 4, 3, 2, 1', '迭代或递归', 1),
