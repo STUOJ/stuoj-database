@@ -1,9 +1,3 @@
-CREATE DATABASE IF NOT EXISTS stuoj_db;
-
-USE stuoj_db;
-
--- DDL
-
 create table if not exists tbl_blog
 (
     id          int unsigned auto_increment comment '博客ID'
@@ -65,7 +59,7 @@ create table if not exists tbl_judgement
     stderr         longtext                   not null comment '标准错误输出',
     compile_output longtext                   not null comment '编译输出',
     message        longtext                   not null comment '信息',
-    status         int unsigned   default '0' not null comment '状态'
+    status         int unsigned   default '1' not null comment '状态'
 )
     comment '评测点结果表';
 
@@ -123,7 +117,7 @@ create table if not exists tbl_submission
         primary key,
     user_id     int unsigned   default '0'     not null comment '用户ID',
     problem_id  int unsigned   default '0'     not null comment '题目ID',
-    status      int unsigned   default '0'     not null comment '状态',
+    status      int unsigned   default '1'     not null comment '状态',
     score       int unsigned   default '0'     not null comment '分数',
     language_id int unsigned   default '0'     not null comment '语言ID',
     length      int unsigned   default '0'     not null comment '源代码长度',
