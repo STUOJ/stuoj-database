@@ -135,7 +135,6 @@ create table if not exists tbl_submission
     create_time timestamp      default (now()) not null comment '创建时间',
     update_time timestamp      default (now()) not null comment '更新时间',
     constraint fk_submission_user foreign key (user_id) references tbl_user(id),
-    constraint fk_submission_problem foreign key (problem_id) references tbl_problem(id),
     constraint fk_submission_language foreign key (language_id) references tbl_language(id)
 )
     comment '提交信息表';
