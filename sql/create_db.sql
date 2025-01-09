@@ -46,7 +46,8 @@ create table if not exists tbl_history
     sample_output longtext                        not null comment '输出样例',
     hint          longtext                        not null comment '提示',
     operation     int unsigned   default '0'      not null comment '操作',
-    create_time   timestamp      default (now())  not null comment '创建时间'
+    create_time   timestamp      default (now())  not null comment '创建时间',
+    constraint fk_history_user foreign key (user_id) references tbl_user(id)
 )
     comment '题目历史记录表';
 
