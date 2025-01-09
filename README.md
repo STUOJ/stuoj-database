@@ -9,18 +9,20 @@
 
 ## 表说明
 
-| 表       | 表名              | 简述                   |
-|---------|-----------------|----------------------|
-| 评测点表    | judgement       | 记录代码运行状态和评测结果的数据表    |
-| 语言表     | language        | 存储编程语言信息的数据表         |
-| 题目表     | problem         | 存储ACM-ICPC算法题目信息的数据表 |
-| 题目历史记录表 | history | 记录题目修改历史的数据表         |
-| 题目标签关系表 | problem_tag     | 存储题目与标签关系的数据表        |
-| 题解表     | solution        | 存储题目标准答案的数据表         |
-| 提交信息表   | submission      | 记录题目提交信息和代码的数据表      |
-| 标签表     | tag             | 存储题目分类标签的数据表         |
-| 评测点数据表  | testcase        | 存储代码评测使用的输入和预期输出数据表  |
-| 用户表     | user            | 存储用户信息的数据表           |
+| 表       | 表名          | 简述                   |
+|---------|-------------|----------------------|
+| 评测点表    | judgement   | 记录代码运行状态和评测结果的数据表    |
+| 语言表     | language    | 存储编程语言信息的数据表         |
+| 题目表     | problem     | 存储ACM-ICPC算法题目信息的数据表 |
+| 题目历史记录表 | history     | 记录题目修改历史的数据表         |
+| 题目标签关系表 | problem_tag | 存储题目与标签关系的数据表        |
+| 题解表     | solution    | 存储题目标准答案的数据表         |
+| 提交信息表   | submission  | 记录题目提交信息和代码的数据表      |
+| 标签表     | tag         | 存储题目分类标签的数据表         |
+| 评测点数据表  | testcase    | 存储代码评测使用的输入和预期输出数据表  |
+| 用户表     | user        | 存储用户信息的数据表           |
+| 博客表     | blog        | 存储用户博客信息的数据表         |
+| 评论表     | comment     | 存储博客评论信息的数据表         |
 
 ## UML
 
@@ -59,7 +61,7 @@
 | 标准错误输出 | stderr         | longtext       | no default     | 运行后的标准错误信息      |
 | 编译输出   | compile_output | longtext       | no default     | 代码编译时的输出信息      |
 | 信息     | message        | longtext       | no default     | 运行或编译的附加信息      |
-| 提交状态   | status         | int unsigned   | 0              | 该评测点的代码评测状态     |
+| 提交状态   | status         | int unsigned   | 1              | 该评测点的代码评测状态     |
 
 ### tbl_language
 
@@ -132,7 +134,7 @@
 | 提交记录ID | id          | int unsigned   | auto_increment    | 提交记录的唯一标识      |
 | 用户ID   | user_id     | int unsigned   | 0                 | 提交用户的ID        |
 | 题目ID   | problem_id  | int unsigned   | 0                 | 关联题目的ID        |
-| 提交状态   | status      | int unsigned   | 0                 | 提交的评测状态        |
+| 提交状态   | status      | int unsigned   | 1                 | 提交的评测状态        |
 | 分数     | score       | int unsigned   | 0                 | 该次提交的得分        |
 | 语言ID   | language_id | int unsigned   | 0                 | 使用语言的ID        |
 | 源代码长度  | length      | int unsigned   | 0                 | 提交源代码的字符数      |
@@ -172,3 +174,28 @@
 | 个性签名  | signature   | text         | no default        | 用户设置的个性化描述，展示在个人信息中          |
 | 创建时间  | create_time | timestamp    | CURRENT_TIMESTAMP | 记录用户注册的时间                    |
 | 更新时间  | update_time | timestamp    | CURRENT_TIMESTAMP | 记录用户信息的最后更新时间，例如修改个人信息时更新此字段 |
+
+### tbl_blog
+
+| 字段   | 字段名         | 数据类型         | 默认值               | 解释       |
+|------|-------------|--------------|-------------------|----------|
+| 博客ID | id          | int unsigned | auto_increment    | 博客的唯一标识符 |
+| 用户ID | user_id     | int unsigned | 0                 | 关联用户的ID  |
+| 题目ID | problem_id  | int unsigned | 0                 | 关联题目的ID  |
+| 标题   | title       | text         | no default        | 博客的标题    |
+| 内容   | content     | longtext     | no default        | 博客的内容    |
+| 状态   | status      | int unsigned | 1                 | 博客的状态    |
+| 创建时间 | create_time | timestamp    | CURRENT_TIMESTAMP | 博客的创建时间  |
+| 更新时间 | update_time | timestamp    | CURRENT_TIMESTAMP | 博客的更新时间  |
+
+### tbl_comment
+
+| 字段   | 字段名         | 数据类型         | 默认值               | 解释       |
+|------|-------------|--------------|-------------------|----------|
+| 评论ID | id          | int unsigned | auto_increment    | 评论的唯一标识符 |
+| 用户ID | user_id     | int unsigned | 0                 | 关联用户的ID  |
+| 博客ID | blog_id     | int unsigned | 0                 | 关联博客的ID  |
+| 内容   | content     | longtext     | no default        | 评论的内容    |
+| 状态   | status      | int unsigned | 1                 | 评论的状态    |
+| 创建时间 | create_time | timestamp    | CURRENT_TIMESTAMP | 评论的创建时间  |
+| 更新时间 | update_time | timestamp    | CURRENT_TIMESTAMP | 评论的更新时间  |
