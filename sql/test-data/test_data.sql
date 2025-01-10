@@ -1,9 +1,5 @@
 USE stuoj_db;
 
--- DML
-
-USE stuoj_db;
-
 -- Insert data into tbl_judgement
 INSERT INTO tbl_judgement (submission_id, testcase_id, time, memory, stdout, stderr, compile_output, message, status)
 VALUES
