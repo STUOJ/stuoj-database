@@ -74,7 +74,7 @@ create table if not exists tbl_language
         primary key,
     name varchar(255) not null comment '语言名',
     serial int unsigned default '0' not null comment '排序序号',
-    map int default '0' not null comment '映射ID',
+    map_id int default '0' not null comment '映射ID',
     status int unsigned default '3' not null comment '状态'
 )
     comment '编程语言表';
