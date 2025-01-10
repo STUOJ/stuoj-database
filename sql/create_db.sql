@@ -81,14 +81,14 @@ create table if not exists tbl_user
 (
     id          bigint unsigned auto_increment comment '用户ID'
         primary key,
-    username    varchar(255)                           not null comment '用户名',
-    password    varchar(255) default '123456'          not null comment '密码',
-    role        tinyint      default 1                 not null comment '角色',
-    email       varchar(255)                           not null comment '邮箱',
-    avatar      text                                   not null comment '头像URL',
-    signature   text                                   not null comment '个性签名',
-    create_time timestamp    default CURRENT_TIMESTAMP not null comment '创建时间',
-    update_time timestamp    default CURRENT_TIMESTAMP not null comment '更新时间',
+    username    varchar(255)                               not null comment '用户名',
+    password    varchar(255)     default '123456'          not null comment '密码',
+    role        tinyint unsigned default '1'               not null comment '角色',
+    email       varchar(255)                               not null comment '邮箱',
+    avatar      text                                       not null comment '头像URL',
+    signature   text                                       not null comment '个性签名',
+    create_time timestamp        default CURRENT_TIMESTAMP not null comment '创建时间',
+    update_time timestamp        default CURRENT_TIMESTAMP not null comment '更新时间',
     constraint uni_tbl_user_email
         unique (email),
     constraint uni_tbl_user_username
