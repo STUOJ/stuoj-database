@@ -9,7 +9,7 @@ create table if not exists tbl_blog
     status      int unsigned default '1'               not null comment '状态',
     create_time timestamp    default CURRENT_TIMESTAMP not null comment '创建时间',
     update_time timestamp    default CURRENT_TIMESTAMP not null comment '更新时间',
-    constraint fk_blog_user foreign key (user_id) references tbl_user(id)
+    constraint fk_blog_user foreign key (user_id) references tbl_user(id) on delete restrict on update restrict
 )
     comment '博客表';
 
@@ -23,8 +23,8 @@ create table if not exists tbl_comment
     status      int unsigned default '1'               not null comment '状态',
     create_time timestamp    default CURRENT_TIMESTAMP not null comment '创建时间',
     update_time timestamp    default CURRENT_TIMESTAMP not null comment '更新时间',
-    constraint fk_comment_user foreign key (user_id) references tbl_user(id),
-    constraint fk_comment_blog foreign key (blog_id) references tbl_blog(id) on delete cascade
+    constraint fk_comment_user foreign key (user_id) references tbl_user(id) on delete restrict on update restrict,
+    constraint fk_comment_blog foreign key (blog_id) references tbl_blog(id) on delete cascade on update restrict
 )
     comment '评论表';
 
@@ -47,7 +47,7 @@ create table if not exists tbl_history
     hint          longtext                        not null comment '提示',
     operation     int unsigned   default '0'      not null comment '操作',
     create_time   timestamp      default (now())  not null comment '创建时间',
-    constraint fk_history_user foreign key (user_id) references tbl_user(id)
+    constraint fk_history_user foreign key (user_id) references tbl_user(id) on delete restrict on update restrict
 )
     comment '题目历史记录表';
 
@@ -64,7 +64,7 @@ create table if not exists tbl_judgement
     compile_output longtext                   not null comment '编译输出',
     message        longtext                   not null comment '信息',
     status         int unsigned   default '1' not null comment '状态',
-    constraint fk_judgement_submission foreign key (submission_id) references tbl_submission(id) on delete cascade
+    constraint fk_judgement_submission foreign key (submission_id) references tbl_submission(id) on delete cascade on update restrict
 )
     comment '评测点结果表';
 
@@ -74,7 +74,7 @@ create table if not exists tbl_language
         primary key,
     name varchar(255) not null comment '语言名',
     serial int unsigned default '0' not null comment '排序序号',
-    map_id int default '0' not null comment '映射ID',
+    map int default '0' not null comment '映射ID',
     status int unsigned default '3' not null comment '状态'
 )
     comment '编程语言表';
@@ -106,8 +106,8 @@ create table if not exists tbl_problem_tag
         primary key,
     problem_id int unsigned default '0' not null comment '题目ID',
     tag_id     int unsigned default '0' not null comment '标签ID',
-    constraint fk_problem_tag_problem foreign key (problem_id) references tbl_problem(id) on delete cascade,
-    constraint fk_problem_tag_tag foreign key (tag_id) references tbl_tag(id) on delete cascade
+    constraint fk_problem_tag_problem foreign key (problem_id) references tbl_problem(id) on delete cascade on update restrict,
+    constraint fk_problem_tag_tag foreign key (tag_id) references tbl_tag(id) on delete cascade on update restrict
 )
     comment '题目标签关系表';
 
@@ -118,8 +118,8 @@ create table if not exists tbl_solution
     language_id int unsigned default '0' not null comment '语言ID',
     problem_id  int unsigned default '0' not null comment '题目ID',
     source_code longtext                 not null comment '源代码',
-    constraint fk_solution_language foreign key (language_id) references tbl_language(id),
-    constraint fk_solution_problem foreign key (problem_id) references tbl_problem(id) on delete cascade
+    constraint fk_solution_language foreign key (language_id) references tbl_language(id) on delete restrict on update restrict,
+    constraint fk_solution_problem foreign key (problem_id) references tbl_problem(id) on delete cascade on update restrict
 )
     comment '题解表';
 
@@ -138,9 +138,9 @@ create table if not exists tbl_submission
     source_code longtext                       not null comment '源代码',
     create_time timestamp      default (now()) not null comment '创建时间',
     update_time timestamp      default (now()) not null comment '更新时间',
-    constraint fk_submission_user foreign key (user_id) references tbl_user(id),
-    constraint fk_submission_problem foreign key (problem_id) references tbl_problem(id),
-    constraint fk_submission_language foreign key (language_id) references tbl_language(id)
+    constraint fk_submission_user foreign key (user_id) references tbl_user(id) on delete restrict on update restrict,
+    constraint fk_submission_problem foreign key (problem_id) references tbl_problem(id) on delete restrict on update restrict,
+    constraint fk_submission_language foreign key (language_id) references tbl_language(id) on delete restrict on update restrict
 )
     comment '提交信息表';
 
@@ -162,7 +162,7 @@ create table if not exists tbl_testcase
     problem_id  int unsigned default '0' not null comment '题目ID',
     test_input  longtext                 not null comment '测试输入',
     test_output longtext                 not null comment '测试输出',
-    constraint fk_testcase_problem foreign key (problem_id) references tbl_problem(id) on delete cascade
+    constraint fk_testcase_problem foreign key (problem_id) references tbl_problem(id) on delete cascade on update restrict
 )
     comment '评测点数据表';
 
