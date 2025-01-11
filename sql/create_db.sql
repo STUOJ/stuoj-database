@@ -1,3 +1,7 @@
+CREATE DATABASE stuoj_db;
+
+USE stuoj_db;
+
 create table if not exists tbl_language
 (
     id     bigint unsigned auto_increment comment '语言ID'
