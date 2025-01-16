@@ -110,8 +110,6 @@ create table if not exists tbl_blog
     status      tinyint unsigned default '1'               not null comment '状态',
     create_time timestamp        default CURRENT_TIMESTAMP not null comment '创建时间',
     update_time timestamp        default CURRENT_TIMESTAMP not null comment '更新时间',
-    constraint fk_tbl_blog_problem
-        foreign key (problem_id) references tbl_problem (id),
     constraint fk_tbl_blog_user
         foreign key (user_id) references tbl_user (id)
 );
