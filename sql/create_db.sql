@@ -6,10 +6,10 @@ create table if not exists tbl_language
 (
     id     bigint unsigned auto_increment comment '语言ID'
         primary key,
-    name   varchar(255)                not null comment '语言名',
-    serial bigint unsigned default '0' not null comment '排序序号',
-    map_id bigint unsigned default '0' not null comment '映射ID',
-    status bigint unsigned default '3' not null comment '状态'
+    name   varchar(255)                  not null comment '语言名',
+    serial smallint unsigned default '0' not null comment '排序序号',
+    map_id int unsigned      default '0' not null comment '映射ID',
+    status tinyint unsigned  default '3' not null comment '状态'
 );
 
 create table if not exists tbl_problem
@@ -72,10 +72,10 @@ create table if not exists tbl_testcase
 (
     id          bigint unsigned auto_increment comment '评测点ID'
         primary key,
-    serial      bigint unsigned default '0' not null comment '评测点序号',
-    problem_id  bigint unsigned default '0' not null comment '题目ID',
-    test_input  longtext                    not null comment '测试输入',
-    test_output longtext                    not null comment '测试输出',
+    problem_id  bigint unsigned   default '0' not null comment '题目ID',
+    serial      smallint unsigned default '0' not null comment '评测点序号',
+    test_input  longtext                      not null comment '测试输入',
+    test_output longtext                      not null comment '测试输出',
     constraint fk_tbl_testcase_problem
         foreign key (problem_id) references tbl_problem (id)
             on delete cascade
@@ -110,6 +110,8 @@ create table if not exists tbl_blog
     status      tinyint unsigned default '1'               not null comment '状态',
     create_time timestamp        default CURRENT_TIMESTAMP not null comment '创建时间',
     update_time timestamp        default CURRENT_TIMESTAMP not null comment '更新时间',
+    constraint fk_tbl_blog_problem
+        foreign key (problem_id) references tbl_problem (id),
     constraint fk_tbl_blog_user
         foreign key (user_id) references tbl_user (id)
 );
@@ -158,17 +160,17 @@ create table if not exists tbl_submission
 (
     id          bigint unsigned auto_increment comment '提交记录ID'
         primary key,
-    user_id     bigint unsigned default '0'               not null comment '用户ID',
-    problem_id  bigint unsigned default '0'               not null comment '题目ID',
-    status      bigint unsigned default '1'               not null comment '状态',
-    score       bigint unsigned default '0'               not null comment '分数',
-    language_id bigint unsigned default '0'               not null comment '语言ID',
-    length      bigint unsigned default '0'               not null comment '源代码长度',
-    memory      bigint unsigned default '0'               not null comment '内存（kb）',
-    time        double          default 0                 not null comment '运行耗时（s）',
-    source_code longtext                                  not null comment '源代码',
-    create_time timestamp       default CURRENT_TIMESTAMP not null comment '创建时间',
-    update_time timestamp       default CURRENT_TIMESTAMP not null comment '更新时间',
+    user_id     bigint unsigned  default '0'               not null comment '用户ID',
+    problem_id  bigint unsigned  default '0'               not null comment '题目ID',
+    status      bigint unsigned  default '1'               not null comment '状态',
+    score       tinyint unsigned default '0'               not null comment '分数',
+    memory      bigint unsigned  default '0'               not null comment '内存（kb）',
+    time        double           default 0                 not null comment '运行耗时（s）',
+    length      int unsigned     default '0'               not null comment '源代码长度',
+    language_id bigint unsigned  default '0'               not null comment '语言ID',
+    source_code longtext                                   not null comment '源代码',
+    create_time timestamp        default CURRENT_TIMESTAMP not null comment '创建时间',
+    update_time timestamp        default CURRENT_TIMESTAMP not null comment '更新时间',
     constraint fk_tbl_submission_language
         foreign key (language_id) references tbl_language (id),
     constraint fk_tbl_submission_problem
