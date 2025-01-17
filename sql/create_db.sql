@@ -62,10 +62,10 @@ create table if not exists tbl_problem_tag
     primary key (tag_id, problem_id),
     constraint fk_tbl_problem_tag_problem
         foreign key (problem_id) references tbl_problem (id)
-            on delete cascade,
+            on update cascade on delete cascade,
     constraint fk_tbl_problem_tag_tag
         foreign key (tag_id) references tbl_tag (id)
-            on delete cascade
+            on update cascade on delete cascade
 );
 
 create table if not exists tbl_testcase
