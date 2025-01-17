@@ -57,15 +57,15 @@ create table if not exists tbl_tag
 
 create table if not exists tbl_problem_tag
 (
-    tag_id     bigint unsigned not null comment '标签ID',
-    problem_id bigint unsigned not null comment '题目ID',
-    primary key (tag_id, problem_id),
+    problem_id bigint unsigned default '0' not null comment '题目ID',
+    tag_id     bigint unsigned default '0' not null comment '标签ID',
+    primary key (problem_id, tag_id),
     constraint fk_tbl_problem_tag_problem
         foreign key (problem_id) references tbl_problem (id)
             on update cascade on delete cascade,
     constraint fk_tbl_problem_tag_tag
         foreign key (tag_id) references tbl_tag (id)
-            on update cascade on delete cascade
+            on update cascade
 );
 
 create table if not exists tbl_testcase
