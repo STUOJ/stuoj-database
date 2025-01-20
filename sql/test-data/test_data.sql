@@ -165,3 +165,42 @@ INSERT INTO tbl_comment (user_id, blog_id, content, status, create_time, update_
 (8, 8, '这是评论内容8。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 (9, 9, '这是评论内容9。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 (10, 10, '这是评论内容10。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+-- Insert data into tbl_collection
+INSERT INTO tbl_collection (user_id, title, description, status, create_time, update_time) VALUES
+(1, '题单标题1', '这是题单简介1。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(2, '题单标题2', '这是题单简介2。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(3, '题单标题3', '这是题单简介3。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(4, '题单标题4', '这是题单简介4。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(5, '题单标题5', '这是题单简介5。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(6, '题单标题6', '这是题单简介6。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(7, '题单标题7', '这是题单简介7。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(8, '题单标题8', '这是题单简介8。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(9, '题单标题9', '这是题单简介9。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(10, '题单标题10', '这是题单简介10。', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+-- Insert data into tbl_collection_problem
+INSERT INTO tbl_collection_problem (collection_id, problem_id) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10);
+
+-- Insert data into tbl_collection_user
+INSERT INTO tbl_collection_user (collection_id, user_id) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10);
