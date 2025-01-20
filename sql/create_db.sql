@@ -114,6 +114,47 @@ create table if not exists tbl_blog
         foreign key (user_id) references tbl_user (id)
 );
 
+create table if not exists tbl_collection
+(
+    id          bigint unsigned auto_increment comment '题单ID'
+        primary key,
+    user_id     bigint unsigned  default '0'               not null comment '用户ID',
+    title       text                                       not null comment '标题',
+    description longtext                                   not null comment '简介',
+    status      tinyint unsigned default '1'               not null comment '状态',
+    create_time timestamp        default CURRENT_TIMESTAMP not null comment '创建时间',
+    update_time timestamp        default CURRENT_TIMESTAMP not null comment '更新时间',
+    constraint fk_tbl_collection_user
+        foreign key (user_id) references tbl_user (id)
+            on update cascade on delete cascade
+);
+
+create table if not exists tbl_collection_problem
+(
+    collection_id bigint unsigned default '0' not null comment '题单ID',
+    problem_id    bigint unsigned default '0' not null comment '题目ID',
+    primary key (collection_id, problem_id),
+    constraint fk_tbl_collection_problem_collection
+        foreign key (collection_id) references tbl_collection (id)
+            on update cascade on delete cascade,
+    constraint fk_tbl_collection_problem_problem
+        foreign key (problem_id) references tbl_problem (id)
+            on update cascade on delete cascade
+);
+
+create table if not exists tbl_collection_user
+(
+    collection_id bigint unsigned default '0' not null comment '题单ID',
+    user_id       bigint unsigned default '0' not null comment '用户ID',
+    primary key (collection_id, user_id),
+    constraint fk_tbl_collection_user_collection
+        foreign key (collection_id) references tbl_collection (id)
+            on update cascade on delete cascade,
+    constraint fk_tbl_collection_user_user
+        foreign key (user_id) references tbl_user (id)
+            on update cascade on delete cascade
+);
+
 create table if not exists tbl_comment
 (
     id          bigint unsigned auto_increment comment '评论ID'
