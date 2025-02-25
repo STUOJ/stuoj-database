@@ -155,6 +155,37 @@ create table if not exists tbl_collection_user
             on update cascade on delete cascade
 );
 
+create table if not exists tbl_contest
+(
+    id          bigint unsigned auto_increment comment '比赛ID'
+        primary key,
+    user_id     bigint unsigned  default '0'               not null comment '用户ID',
+    collection_id     bigint unsigned  default '0'               not null comment '题单ID',
+    title       text                                       not null comment '标题',
+    description longtext                                   not null comment '简介',
+    status      tinyint unsigned default '1'               not null comment '状态',
+    create_time timestamp        default CURRENT_TIMESTAMP not null comment '创建时间',
+    update_time timestamp        default CURRENT_TIMESTAMP not null comment '更新时间',
+    constraint fk_tbl_contest_user
+        foreign key (user_id) references tbl_user (id)
+            on update cascade on delete cascade,
+    constraint fk_tbl_contest_collection
+        foreign key (collection_id) references tbl_collection (id)
+);
+
+create table if not exists tbl_contest_user
+(
+    contest_id bigint unsigned default '0' not null comment '比赛ID',
+    user_id       bigint unsigned default '0' not null comment '用户ID',
+    primary key (contest_id, user_id),
+    constraint fk_tbl_contest_user_contest
+        foreign key (contest_id) references tbl_collection (id)
+            on update cascade on delete cascade,
+    constraint fk_tbl_contest_user_user
+        foreign key (user_id) references tbl_user (id)
+            on update cascade on delete cascade
+);
+
 create table if not exists tbl_comment
 (
     id          bigint unsigned auto_increment comment '评论ID'
