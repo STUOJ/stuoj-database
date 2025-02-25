@@ -161,9 +161,9 @@ create table if not exists tbl_contest
         primary key,
     user_id     bigint unsigned  default '0'               not null comment '用户ID',
     collection_id     bigint unsigned  default '0'               not null comment '题单ID',
-    title       text                                       not null comment '标题',
-    description longtext                                   not null comment '简介',
     status      tinyint unsigned default '1'               not null comment '状态',
+    start_time  timestamp        default CURRENT_TIMESTAMP not null comment '开始时间',
+    end_time    timestamp        default CURRENT_TIMESTAMP not null comment '结束时间',
     create_time timestamp        default CURRENT_TIMESTAMP not null comment '创建时间',
     update_time timestamp        default CURRENT_TIMESTAMP not null comment '更新时间',
     constraint fk_tbl_contest_user
