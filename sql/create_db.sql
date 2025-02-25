@@ -162,6 +162,8 @@ create table if not exists tbl_contest
     user_id     bigint unsigned  default '0'               not null comment '用户ID',
     collection_id     bigint unsigned  default '0'               not null comment '题单ID',
     status      tinyint unsigned default '1'               not null comment '状态',
+    format        tinyint unsigned default '1'               not null comment '赛制',
+    team_size        tinyint unsigned default '1'               not null comment '组队人数',
     start_time  timestamp        default CURRENT_TIMESTAMP not null comment '开始时间',
     end_time    timestamp        default CURRENT_TIMESTAMP not null comment '结束时间',
     create_time timestamp        default CURRENT_TIMESTAMP not null comment '创建时间',
@@ -185,6 +187,49 @@ create table if not exists tbl_contest_user
         foreign key (user_id) references tbl_user (id)
             on update cascade on delete cascade
 );
+
+create table if not exists tbl_contest_team
+(
+    contest_id bigint unsigned default '0' not null comment '比赛ID',
+    team_id       bigint unsigned default '0' not null comment '团队ID',
+    primary key (contest_id, team_id),
+    constraint fk_tbl_contest_team_contest
+        foreign key (contest_id) references tbl_collection (id)
+            on update cascade on delete cascade,
+    constraint fk_tbl_contest_team_team
+        foreign key (team_id) references tbl_user (id)
+            on update cascade on delete cascade
+);
+
+create table if not exists tbl_team
+(
+    id          bigint unsigned auto_increment comment '团队ID'
+        primary key,
+    user_id     bigint unsigned  default '0'               not null comment '用户ID',
+    name       text                                       not null comment '队名',
+    description longtext                                   not null comment '简介',
+    status      tinyint unsigned default '1'               not null comment '状态',
+    create_time timestamp        default CURRENT_TIMESTAMP not null comment '创建时间',
+    update_time timestamp        default CURRENT_TIMESTAMP not null comment '更新时间',
+    constraint fk_tbl_team_user
+        foreign key (user_id) references tbl_user (id)
+            on update cascade on delete cascade
+);
+
+create table if not exists tbl_team_user
+(
+    team_id bigint unsigned default '0' not null comment '团队ID',
+    user_id       bigint unsigned default '0' not null comment '用户ID',
+    primary key (team_id, user_id),
+    constraint fk_tbl_team_user_team
+        foreign key (team_id) references tbl_team (id)
+            on update cascade on delete cascade,
+    constraint fk_tbl_team_user_user
+        foreign key (user_id) references tbl_user (id)
+            on update cascade on delete cascade
+);
+
+
 
 create table if not exists tbl_comment
 (
