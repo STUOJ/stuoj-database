@@ -175,31 +175,22 @@ create table if not exists tbl_contest
         foreign key (collection_id) references tbl_collection (id)
 );
 
-create table if not exists tbl_contest_team
-(
-    contest_id bigint unsigned default '0' not null comment '比赛ID',
-    team_id       bigint unsigned default '0' not null comment '团队ID',
-    primary key (contest_id, team_id),
-    constraint fk_tbl_contest_team_contest
-        foreign key (contest_id) references tbl_collection (id)
-            on update cascade on delete cascade,
-    constraint fk_tbl_contest_team_team
-        foreign key (team_id) references tbl_user (id)
-            on update cascade on delete cascade
-);
-
 create table if not exists tbl_team
 (
     id          bigint unsigned auto_increment comment '团队ID'
         primary key,
     user_id     bigint unsigned  default '0'               not null comment '用户ID',
-    name       text                                       not null comment '队名',
+    contest_id  bigint unsigned default '0' not null comment '比赛ID',
+    name        text                                       not null comment '队名',
     description longtext                                   not null comment '简介',
     status      tinyint unsigned default '1'               not null comment '状态',
     create_time timestamp        default CURRENT_TIMESTAMP not null comment '创建时间',
     update_time timestamp        default CURRENT_TIMESTAMP not null comment '更新时间',
     constraint fk_tbl_team_user
         foreign key (user_id) references tbl_user (id)
+            on update cascade on delete cascade,
+    constraint fk_tbl_team_contest
+        foreign key (contest_id) references tbl_contest (id)
             on update cascade on delete cascade
 );
 
