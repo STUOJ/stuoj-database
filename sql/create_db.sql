@@ -207,6 +207,19 @@ create table if not exists tbl_team_user
             on update cascade on delete cascade
 );
 
+create table if not exists tbl_team_submission
+(
+    team_id             bigint unsigned default '0' not null comment '团队ID',
+    submission_id       bigint unsigned default '0' not null comment '提交ID',
+    primary key (team_id, submission_id),
+    constraint fk_tbl_team_submission_team
+        foreign key (team_id) references tbl_team (id)
+            on update cascade on delete cascade,
+    constraint fk_tbl_team_submission_submission
+        foreign key (submission_id) references tbl_submission (id)
+            on update cascade on delete cascade
+);
+
 create table if not exists tbl_comment
 (
     id          bigint unsigned auto_increment comment '评论ID'
