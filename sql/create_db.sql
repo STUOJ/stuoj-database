@@ -133,6 +133,7 @@ create table if not exists tbl_collection_problem
 (
     collection_id bigint unsigned default '0' not null comment '题单ID',
     problem_id    bigint unsigned default '0' not null comment '题目ID',
+    serial        smallint unsigned default '0' not null comment '排序序号',
     primary key (collection_id, problem_id),
     constraint fk_tbl_collection_problem_collection
         foreign key (collection_id) references tbl_collection (id)
