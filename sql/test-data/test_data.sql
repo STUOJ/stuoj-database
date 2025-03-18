@@ -204,3 +204,54 @@ INSERT INTO tbl_collection_user (collection_id, user_id) VALUES
 (8, 8),
 (9, 9),
 (10, 10);
+
+-- Insert data into tbl_contest
+INSERT INTO tbl_contest (user_id, collection_id, status, format, team_size, start_time, end_time, create_time, update_time) VALUES
+(1, 1, 1, 1, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(2, 2, 1, 1, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(3, 3, 1, 1, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(4, 4, 1, 1, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(5, 5, 1, 1, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(6, 6, 1, 1, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(7, 7, 1, 1, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(8, 8, 1, 1, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(9, 9, 1, 1, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(10, 10, 1, 1, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+-- Insert data into tbl_team
+INSERT INTO tbl_team (user_id, contest_id, name, description, status, create_time, update_time) VALUES
+(1, 1, 'Team 1', 'Description 1', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(2, 2, 'Team 2', 'Description 2', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(3, 3, 'Team 3', 'Description 3', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(4, 4, 'Team 4', 'Description 4', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(5, 5, 'Team 5', 'Description 5', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(6, 6, 'Team 6', 'Description 6', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(7, 7, 'Team 7', 'Description 7', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(8, 8, 'Team 8', 'Description 8', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(9, 9, 'Team 9', 'Description 9', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+(10, 10, 'Team 10', 'Description 10', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+-- Insert data into tbl_team_user
+INSERT INTO tbl_team_user (team_id, user_id) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10);
+
+-- Insert data into tbl_team_submission
+INSERT INTO tbl_team_submission (team_id, submission_id) VALUES
+(1, 1),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10);
